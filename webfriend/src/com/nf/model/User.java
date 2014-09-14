@@ -1,8 +1,11 @@
 package com.nf.model;
 
+import java.util.Set;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -22,6 +25,11 @@ public class User
 	private String image;
 	private int info_state;
 	private int at_state;
+	private Set<Friend> friends;
+	private Set<Mood> moods;
+	private Set<Comment> comments;
+	private Set<AtUserToComment> atByComments;//@Me的评论有那些
+	private Set<AtUserToMood> atByMoods;//@Me的心情有那些
 
 	@Id
 	@GeneratedValue
@@ -155,4 +163,60 @@ public class User
 		this.at_state = at_state;
 	}
 
+	@OneToMany(mappedBy="user")
+	public Set<Friend> getFriends()
+	{
+		return friends;
+	}
+
+	public void setFriends(Set<Friend> friends)
+	{
+		this.friends = friends;
+	}
+
+	@OneToMany(mappedBy="user")
+	public Set<Mood> getMoods()
+	{
+		return moods;
+	}
+
+	public void setMoods(Set<Mood> moods)
+	{
+		this.moods = moods;
+	}
+
+	@OneToMany(mappedBy="user")
+	public Set<Comment> getComments()
+	{
+		return comments;
+	}
+
+	public void setComments(Set<Comment> comments)
+	{
+		this.comments = comments;
+	}
+
+	@OneToMany(mappedBy="user")
+	public Set<AtUserToComment> getAtByComments()
+	{
+		return atByComments;
+	}
+
+	public void setAtByComments(Set<AtUserToComment> atByComments)
+	{
+		this.atByComments = atByComments;
+	}
+
+	@OneToMany(mappedBy="user")
+	public Set<AtUserToMood> getAtByMoods()
+	{
+		return atByMoods;
+	}
+
+	public void setAtByMoods(Set<AtUserToMood> atByMoods)
+	{
+		this.atByMoods = atByMoods;
+	}
+
+	
 }

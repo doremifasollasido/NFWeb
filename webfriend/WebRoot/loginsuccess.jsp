@@ -21,10 +21,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-     欢迎你<%=session.getAttribute("user")%> <br>
-  <form action="logout" method="post">
-
-   <input type="submit" value="注销">
+     欢迎你,${sessionScope.user.username} <br>
+     <form action="#">
+     	<input type="test" name="content">
+     	<input type="submit" value="发表心情">
+     </form><br>
+  	<form action="logout" method="post">
+   		<input type="submit" value="注销登录">
    </form>
   </body>
 </html>

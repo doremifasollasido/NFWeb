@@ -63,7 +63,7 @@ public class LoginAction extends ActionSupport implements ModelDriven,
 				userdto.getPassword());
 		if (null != user)
 		{
-			session.put("user", user.getUsername());
+			session.put("user", user);
 			return SUCCESS;
 		}
 		return INPUT;

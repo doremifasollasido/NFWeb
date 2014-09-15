@@ -12,5 +12,7 @@ public interface UserDao
 
 	// 判断是否存在某个用户名
 	public boolean checkByPropertyExists(String name, String value);
+	
+	public User load(int userId);
 
 }

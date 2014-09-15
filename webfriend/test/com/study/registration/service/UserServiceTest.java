@@ -1,19 +1,13 @@
 package com.study.registration.service;
 
-import static org.junit.Assert.fail;
 
-import org.junit.Assert;
-import org.junit.Test;
 
-import com.study.registration.model.User;
-import com.study.registration.service.UserService;
-import com.study.registration.service.impl.UserServiceImpl;
 
 public class UserServiceTest
 {
 	
 
-	@Test
+/*	@Test
 	public void testExists()
 	{
 		UserService userService = new UserServiceImpl();
@@ -44,6 +38,6 @@ public class UserServiceTest
 		
 		
 		
-	}
+	}*/
 
 }

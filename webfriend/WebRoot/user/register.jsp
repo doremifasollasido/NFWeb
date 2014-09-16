@@ -13,8 +13,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<link rel="stylesheet" href="../assets/css/bootstrap.min.css" />
 		<link rel="stylesheet" href="../assets/css/bootstrap-responsive.min.css" />
         <link rel="stylesheet" href="../assets/css/style.css" />
-       <script type="text/javascript" src="../jquery/jquery.min.js"></script>
-	            <script type="text/javascript" src="../js/register.js"></script> 
+       <script type="text/javascript" src="../assets/js/jquery.min.js"></script>
+	            <script type="text/javascript" src="../assets/js/register.js"></script> 
         
         
         

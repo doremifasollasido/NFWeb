@@ -1,20 +1,44 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE struts PUBLIC
-	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
-	"http://struts.apache.org/dtds/struts-2.3.dtd">
-
+	
+	<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+	
 <struts>
-	<package name="struts2" extends="struts-default">
-		<action name="register" class="com.nf.action.RegisterAction">
-			<result name="success"  type="redirect">/registersuccess.jsp</result>
-			<result name="input"  type="redirect">/user/register.jsp</result>
-		</action>
-		<action name="login" class="com.nf.action.LoginAction">
-			<result name="success"  type="redirect">/loginsuccess.jsp</result>
-			<result name="input"  type="redirect">/user/login.jsp</result>
-		</action>
-		<action name="logout" class="com.nf.action.LogOutAction">
-			<result name="success"  type="redirect">/user/login.jsp</result>
-		</action>
-	</package>
-</struts>	
+<!-- <constant name="struts.i18n.encoding" value="gbk"></constant> -->
+<package name="struts2" extends="struts-default">
+
+ <action name="register" class="com.nf.action.RegisterAction">
+ <result name="success" type="redirect">/registersuccess.jsp</result>
+ <result name="input" type="redirect">/user/register.jsp</result>
+ </action>
+ <action name="login" class="com.nf.action.LoginAction">
+ <result name="success" type="redirect">/loginsuccess.jsp</result>
+ <result name="input" type="redirect">/login.jsp</result>
+  </action>
+ <action name="logout" class="com.nf.action.LogOutAction">
+ <result name="success"  type="redirect">/login.jsp</result>
+ </action>
+ 
+ <action name="checkuser" class="com.nf.action.UserInformationAction">
+ <result name="success" type="redirect">/personinformation.jsp</result>
+ </action>
+  
+  <action name="adduser" class="com.nf.action.AddFriendAction">
+  <result name="success" type="redirect">/successaddfriend.jsp</result>
+  </action>
+  
+  <action name="adminlogin" class="com.nf.action.AdminLoginAction">
+  <result name="success" type="redirect">/adminloginsuccess.jsp</result>
+  <result name="input" type="redirect">/adminlogin.jsp</result>
+  </action>
+  
+  <action name="userdisplay" class="com.nf.action.UserDisplayAction">
+  <result name="success" type="dispatcher">/userdisplay.jsp</result>
+  </action>
+  
+  <action name="userdelete" class="com.nf.action.UserDeleteAction">
+   <result name="success" type="redirect">/userdisplay.jsp</result>
+  </action>
+</package>
+</struts> 

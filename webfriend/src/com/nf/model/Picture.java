@@ -6,6 +6,9 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.LazyToOne;
+import org.hibernate.annotations.LazyToOneOption;
+
 @Entity
 @Table(name = "t_picture")
 public class Picture
@@ -27,6 +30,7 @@ public class Picture
 	}
 
 	@ManyToOne
+	@LazyToOne(LazyToOneOption.PROXY)
 	public Mood getMood()
 	{
 		return mood;

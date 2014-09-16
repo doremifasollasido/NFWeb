@@ -8,6 +8,9 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+
 @Entity
 @Table(name = "t_user")
 public class User
@@ -164,6 +167,7 @@ public class User
 	}
 
 	@OneToMany(mappedBy="user")
+	@LazyCollection(LazyCollectionOption.TRUE)
 	public Set<Friend> getFriends()
 	{
 		return friends;
@@ -175,6 +179,7 @@ public class User
 	}
 
 	@OneToMany(mappedBy="user")
+	@LazyCollection(LazyCollectionOption.TRUE)
 	public Set<Mood> getMoods()
 	{
 		return moods;
@@ -186,6 +191,7 @@ public class User
 	}
 
 	@OneToMany(mappedBy="user")
+	@LazyCollection(LazyCollectionOption.TRUE)
 	public Set<Comment> getComments()
 	{
 		return comments;
@@ -197,6 +203,7 @@ public class User
 	}
 
 	@OneToMany(mappedBy="user")
+	@LazyCollection(LazyCollectionOption.TRUE)
 	public Set<AtUserToComment> getAtByComments()
 	{
 		return atByComments;
@@ -208,6 +215,7 @@ public class User
 	}
 
 	@OneToMany(mappedBy="user")
+	@LazyCollection(LazyCollectionOption.TRUE)
 	public Set<AtUserToMood> getAtByMoods()
 	{
 		return atByMoods;

@@ -52,6 +52,4 @@ public class AtUserToMood
 	{
 		this.uptime = uptime;
 	}
-	
-
 }

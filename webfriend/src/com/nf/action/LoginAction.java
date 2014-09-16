@@ -1,5 +1,6 @@
 package com.nf.action;
 
+import java.util.ArrayList;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
@@ -11,67 +12,76 @@ import com.nf.model.User;
 import com.nf.service.UserService;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
-
 @Component("loginaction")
 @Scope("prototype")
-public class LoginAction extends ActionSupport implements ModelDriven,
-		SessionAware
-{
-
+public class LoginAction extends ActionSupport  implements ModelDriven,SessionAware{
+	
 	/*
-	 * 用户登录action
+	 用户登录action
+	 * 
 	 */
 	private Map session;
-
-	public Map getSession()
-	{
+	public Map getSession() {
 		return session;
 	}
 
-	public void setSession(Map session)
-	{
+
+	public void setSession(Map session) {
 		this.session = session;
 	}
 
 	private UserDto userdto;
 	private UserService userservice;
-
-	public UserDto getUserdto()
-	{
+	
+	public UserDto getUserdto() {
 		return userdto;
 	}
 
-	public void setUserdto(UserDto userdto)
-	{
+
+	public void setUserdto(UserDto userdto) {
 		this.userdto = userdto;
 	}
 
-	public UserService getUserservice()
-	{
+
+	public UserService getUserservice() {
 		return userservice;
 	}
 
-	public void setUserservice(UserService userservice)
-	{
+
+	public void setUserservice(UserService userservice) {
 		this.userservice = userservice;
 	}
 
+	
 	@Override
-	public String execute() throws Exception
-	{
-		User user = userservice.login(userdto.getUsername(),
-				userdto.getPassword());
-		if (null != user)
+	public String execute() throws Exception {
+		
+		if((userdto.getUsername().length()<4||userdto.getUsername().length()>10)	||(userdto.getPassword().length()<4||userdto.getPassword().length()>10))
 		{
-			session.put("user", user);
-			return SUCCESS;
+		String str="用户名或密码不正确";
+			session.put("error",str);
+			return INPUT;
+			
 		}
+		
+	
+		User user =userservice.login(userdto.getUsername(), userdto.getPassword());				
+		if(null != user)
+		{
+			session.clear();
+			session.put("user", user);
+			
+			return SUCCESS;
+			
+		}
+		String str="用户名或密码不正确";
+		session.put("error",str);
+		
 		return INPUT;
 	}
 
 	@Override
-	public Object getModel()
-	{
+	public Object getModel() {
 		// TODO Auto-generated method stub
 		return userdto;
 	}

@@ -11,7 +11,7 @@
 		<link href="../assets/css/wf.login.css" rel="stylesheet">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
     <body>
-		<div class="page-header">后台登录</div>
+		<div class="page-header"><h1>后台登录<small>南方校友平台</small></h1></div>
         <div id="loginbox">            
             <form id="loginform" class="form-vertical" action="index.html" />
 				<p>请输入用户名和密码</p>

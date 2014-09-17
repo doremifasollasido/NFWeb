@@ -36,36 +36,14 @@
 </div>
 <div id="content">
 <div id="content-header">
-  <h1>删除用户</h1>
+  <h1>欢迎登录后台！</h1>
 </div>
-<div id="breadcrumb"> <a href="#" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> 首页</a> <a href="#" class="current">删除用户</a> </div>
+
 <div class="container-fluid">
-  <div class="row-fluid">
-    <div class="widget-box">
-      <div class="widget-title"> <span class="icon"><i class="icon-time"></i></span>
-        <h5>用户列表</h5>
-        <span class="label label-info">1</span> </div>
-      <div class="widget-content nopadding">
-        <table class="table table-striped table-bordered">
-          <thead>
-            <tr>
-              <th>用户名</th>
-              <th>操作</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="taskDesc"><i class="icon-info-sign"></i> 小名</td>
-              <td class="taskOptions"><a href="#" class="tip-top" data-original-title="Update"><i class="icon-ok"></i></a> <a href="" class="tip-top" data-original-title="Delete"><i class="icon-remove"></i></a></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
+
 </div>
 <script src="../assets/js/jquery.min.js"></script> 
-<script src="../assets/js/jquery.ui.custom.js"></script> 
+<script src="../assets/js/jquery.ui.custom.js"></script>
 <script src="../assets/js/bootstrap.min.js"></script> 
 <script src="../assets/js/unicorn.js"></script>
 </body>

@@ -13,6 +13,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<link rel="stylesheet" href="../assets/css/bootstrap.min.css" />
 		<link rel="stylesheet" href="../assets/css/bootstrap-responsive.min.css" />
         <link rel="stylesheet" href="../assets/css/style.css" />
+       <script type="text/javascript" src="../assets/js/jquery.min.js"></script>
+	            <script type="text/javascript" src="../assets/js/register.js"></script> 
+        
         
         
     	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -41,6 +44,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                             <label class="control-label" for="username">用户名</label>
                             <div class="controls">
                               <input type="text" id="username" name="username" placeholder="用户名">
+                              <span id="us">请输入4-10位数的用户名</span>
                             </div>
                           </div>
                           <!--密码 -->
@@ -48,6 +52,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                             <label class="control-label" for="password">密码</label>
                             <div class="controls">
                               <input type="password" id="password" name="password" placeholder="密码">
+                              <span id="pw">请输入4-10位数的密码</span>
                             </div>
                           </div>
                           <!-- 确认密码-->
@@ -55,6 +60,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                             <label class="control-label" for="repassword">确认密码</label>
                             <div class="controls">
                               <input type="password" id="repassword" name="repassword" placeholder="确认密码">
+                              <span id="rpw"></span>
                             </div>
                           </div>
                           <!-- 昵称-->
@@ -62,6 +68,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                             <label class="control-label" for="alais">昵称</label>
                             <div class="controls">
                               <input type="text" id="alais" name="alais" placeholder="昵称">
+                              <span id="al">请输入2-10位数的昵称</span>
                             </div>
                           </div>
                           <!-- 学号-->
@@ -69,6 +76,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                             <label class="control-label" for="sno">学号</label>
                             <div class="controls">
                               <input type="text" id="sno" name="sno" placeholder="学号">
+                              <span id="sn">请输入2-10位数的学号</span>
                             </div>
                           </div>
                           <!-- 头像-->
@@ -83,6 +91,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                             <label class="control-label" for="email">邮箱</label>
                             <div class="controls">
                               <input type="text" id="email" name="email" placeholder="邮箱">
+                              <span id="em"></span>
                             </div>
                           </div>
                           <!-- 系名-->
@@ -116,7 +125,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                           <!-- 注册按钮-->
                           <div class="control-group">
                             <div class="controls">
-                              <button type="submit" class="btn btn-info span2">注册</button>
+                              <button type="submit" class="btn btn-info span2" id="sub">注册</button>
                             </div>
                           </div>
                        </form>

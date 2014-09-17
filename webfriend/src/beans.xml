@@ -71,7 +71,9 @@ http://www.springframework.org/schema/jee/spring-jee.xsd
 		<tx:attributes>
 			<!-- <tx:method name="add*" propagation="REQUIRED"/> -->
 			<tx:method name="save*"/>
-			
+			<tx:method name="add*" />
+			<tx:method name="delete*"/>
+			<tx:method name="get*"/>
 		</tx:attributes>
 	</tx:advice>
 	<!-- TX xml config-end -->

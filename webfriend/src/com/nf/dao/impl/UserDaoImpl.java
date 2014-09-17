@@ -39,8 +39,8 @@ public class UserDaoImpl implements UserDao
 	public User loginvalidate(String username, String password)
 	{
 		List list = new ArrayList();
-		list = (List) hibernatetemplate.find("from User u where u.username="
-				+ username + " and u.password=" + password);
+		list = (List) hibernatetemplate.find("from User u where u.username='"
+				+ username + "' and u.password='" + password+"'");
 		if (null != list && list.size() > 0)
 		{
 			User u = (User) list.get(0);
@@ -57,8 +57,8 @@ public class UserDaoImpl implements UserDao
 	@Override
 	public boolean checkByPropertyExists(String name, String value)
 	{
-		List list = hibernatetemplate.find("from User  where " + name + "="
-				+ value);
+		List list = hibernatetemplate.find("from User u where u." + name + "='"
+				+ value+"'");
 
 		if (null != list && list.size() > 0)
 		{
@@ -67,6 +67,23 @@ public class UserDaoImpl implements UserDao
 		}
 
 		return false;
+	}
+
+	@Override
+	public User load(int userId)
+	{
+		User u = null;
+		try
+		{
+			u= hibernatetemplate.load(User.class, userId);
+		} catch (Exception e)
+		{
+			u=null;
+			e.printStackTrace();
+			// TODO: handle exception
+		}
+		
+		return u;
 	}
 
 }

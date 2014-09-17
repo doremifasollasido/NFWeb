@@ -1,6 +1,6 @@
 package com.nf.model;
 
-import java.sql.Date;
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -52,6 +52,4 @@ public class AtUserToMood
 	{
 		this.uptime = uptime;
 	}
-	
-
 }

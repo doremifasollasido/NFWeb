@@ -52,6 +52,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                         </form>
                     </div>
                 </div>
+                 <h3><s:property value="#session.error" /></h3>
+                <%session.removeAttribute("error");%>
             </div>
             
         </div>

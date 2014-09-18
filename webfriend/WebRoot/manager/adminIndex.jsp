@@ -26,19 +26,19 @@
 </div>
 <div id="sidebar"> <a href="#" class="visible-phone"><i class="icon icon-inbox"></i> Widgets</a>
   <ul>
-    <li><a href="index.html"><i class="icon icon-home"></i> <span>首页</span></a></li>
+    <li class="active"><a href="http://localhost:8080/nf/manager/adminIndex.jsp"><i class="icon icon-home"></i> <span>首页</span></a></li>
 
-    <li><a href="grid.html"><i class="icon icon-th-list"></i> <span>删除评论</span></a></li>
+    <li><a href="http://localhost:8080/nf/manager/deleteComment.jsp"><i class="icon icon-th-list"></i> <span>删除评论</span></a></li>
 
-    <li> <a href="charts.html"><i class="icon icon-signal"></i> <span>删除心情</span></a> </li>
-    <li class="active"> <a href="widgets.html"><i class="icon icon-inbox"></i> <span>删除用户</span></a> </li>
+    <li><a href="mooddisplay.action"> <i class="icon icon-signal"></i><span>删除心情</span></a> </li>
+    <li ><a href="userdisplay.action" ><i class="icon icon-inbox"></i> <span>删除用户</span></a> </li>
   </ul>
 </div>
 <div id="content">
 <div id="content-header">
   <h1>欢迎登录后台！</h1>
 </div>
-
+</div>
 <div class="container-fluid">
 
 </div>

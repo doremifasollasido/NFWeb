@@ -27,10 +27,10 @@
 </div>
 <div id="sidebar"> <a href="#" class="visible-phone"><i class="icon icon-inbox"></i></a>
   <ul>
-    <li><a href="index.html"><i class="icon icon-home"></i> <span>首页</span></a></li>
-    <li class="active"><a href="grid.html"><i class="icon icon-th-list"></i> <span>删除评论</span></a></li>
-    <li> <a href="charts.html"><i class="icon icon-signal"></i> <span>删除心情</span></a> </li>
-    <li> <a href="widgets.html"><i class="icon icon-inbox"></i> <span>删除用户</span></a> </li>
+    <li><a href="http://localhost:8080/nf/manager/adminIndex.jsp"><i class="icon icon-home"></i> <span>首页</span></a></li>
+    <li class="active"><a href="http://localhost:8080/nf/manager/deleteComment.jsp"><i class="icon icon-th-list"></i> <span>删除评论</span></a></li>
+    <li>  <a href="mooddisplay.action"><i class="icon icon-signal"></i> <span>删除心情</span></a> </li>
+   <li ><a href="userdisplay.action" ><i class="icon icon-inbox"></i> <span>删除用户</span></a> </li>
   </ul>
 </div>
 <div id="content">
@@ -59,67 +59,13 @@
                 <td>今天天气很好~</td>
                 <td class="center"><a href="" class="tip-top" data-original-title="Delete"><i class="icon-remove"></i></a></td>
               </tr>
-              <tr class="gradeX">
-                <td>小名</td>
-                <td>今天天气很好~</td>
-                <td class="center"><a href="" class="tip-top" data-original-title="Delete"><i class="icon-remove"></i></a></td>
-              </tr>
-              <tr class="gradeX">
-                <td>小名</td>
-                <td>今天天气很好~</td>
-                <td class="center"><a href="" class="tip-top" data-original-title="Delete"><i class="icon-remove"></i></a></td>
-              </tr>
-              <tr class="gradeX">
-                <td>小名</td>
-                <td>今天天气很好~</td>
-                <td class="center"><a href="" class="tip-top" data-original-title="Delete"><i class="icon-remove"></i></a></td>
-              </tr>
-              <tr class="gradeX">
-                <td>小名</td>
-                <td>今天天气很好~</td>
-                <td class="center"><a href="" class="tip-top" data-original-title="Delete"><i class="icon-remove"></i></a></td>
-              </tr>
-              <tr class="gradeX">
-                <td>小名</td>
-                <td>今天天气很好~</td>
-                <td class="center"><a href="" class="tip-top" data-original-title="Delete"><i class="icon-remove"></i></a></td>
-              </tr>
-              <tr class="gradeX">
-                <td>小名</td>
-                <td>今天天气很好~</td>
-                <td class="center"><a href="" class="tip-top" data-original-title="Delete"><i class="icon-remove"></i></a></td>
-              </tr>
-              <tr class="gradeX">
-                <td>小名</td>
-                <td>今天天气很好~</td>
-                <td class="center"><a href="" class="tip-top" data-original-title="Delete"><i class="icon-remove"></i></a></td>
-              </tr>
-              <tr class="gradeX">
-                <td>小名</td>
-                <td>今天天气很好~</td>
-                <td class="center"><a href="" class="tip-top" data-original-title="Delete"><i class="icon-remove"></i></a></td>
-              </tr>
-              <tr class="gradeX">
-                <td>小名</td>
-                <td>今天天气很好~</td>
-                <td class="center"><a href="" class="tip-top" data-original-title="Delete"><i class="icon-remove"></i></a></td>
-              </tr>
-              <tr class="gradeX">
-                <td>小名</td>
-                <td>今天天气很好~</td>
-                <td class="center"><a href="" class="tip-top" data-original-title="Delete"><i class="icon-remove"></i></a></td>
-              </tr>
-              <tr class="gradeX">
-                <td>小名</td>
-                <td>今天天气很好~</td>
-                <td class="center"><a href="" class="tip-top" data-original-title="Delete"><i class="icon-remove"></i></a></td>
-              </tr>
             </tbody>
           </table>
         </div>
-      </div><!--widget-box-->
+      </div>
     </div>
   </div>
+</div>
 </div>
 <script src="../assets/js/jquery.min.js"></script> 
 <script src="../assets/js/jquery.ui.custom.js"></script> 

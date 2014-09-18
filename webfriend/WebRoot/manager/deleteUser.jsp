@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=utf-8" language="java" import="java.sql.*" errorPage="UTF-8" %>
+<%@taglib prefix="s" uri="/struts-tags" %>
 <!doctype html>
 <html>
 <head>
@@ -7,7 +8,6 @@
 <title>DELETE USER</title>
 <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
 <link href="../assets/css/bootstrap-responsive.min.css" rel="stylesheet">
-<link rel="stylesheet" href="../assets/css/select2.css" />
 <link rel="stylesheet" href="../assets/css/wf.main.css" />
 <link rel="stylesheet" href="../assets/css/wf.grey.css" class="skin-color" />
 </head>
@@ -27,50 +27,50 @@
 </div>
 <div id="sidebar"> <a href="#" class="visible-phone"><i class="icon icon-inbox"></i> Widgets</a>
   <ul>
-    <li><a href="index.html"><i class="icon icon-home"></i> <span>首页</span></a></li>
-    <li><a href="grid.html"><i class="icon icon-th-list"></i> <span>删除评论</span></a></li>
-    <li> <a href="charts.html"><i class="icon icon-signal"></i> <span>删除心情</span></a> </li>
-    <li class="active"> <a href="widgets.html"><i class="icon icon-inbox"></i> <span>删除用户</span></a> </li>
-  </ul>
+    <li><a href="http://localhost:8080/nf/manager/adminIndex.jsp"><i class="icon icon-home"></i> <span>首页</span></a></li>
+
+    <li><a href="http://localhost:8080/nf/manager/deleteComment.jsp"><i class="icon icon-th-list"></i> <span>删除评论</span></a></li>
+
+    <li> <a href="mooddisplay.action"><i class="icon icon-signal"></i> <span>删除心情</span></a> </li>
+    <li class="active"><a href="userdisplay.action" ><i class="icon icon-inbox"></i> <span>删除用户</span></a> </li>
+  </ul> 
 </div>
 <div id="content">
-  <div id="content-header">
-    <h1>删除用户</h1>
-  </div>
-  <div id="breadcrumb"> <a href="#" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> 首页</a> <a href="#" class="current">删除用户</a> </div>
-  <div class="container-fluid">
-    <div class="row-fluid">
-      <div class="widget-box">
-        <div class="widget-title">
-          <h5>心情列表</h5>
-        </div>
-        <div class="widget-content nopadding">
-          <table class="table table-bordered data-table">
-            <thead>
-              <tr>
-                <th>用户名</th>
-                <th>操作</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr class="gradeX">
-                <td>小名</td>
-                <td class="center"><a href="" class="tip-top" data-original-title="Delete"><i class="icon-remove"></i></a></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div><!--widget-box-->
+<div id="content-header">
+  <h1>删除用户</h1>
+</div>
+<div id="breadcrumb"> <a href="#" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> 首页</a> <a href="#" class="current">删除用户</a> </div>
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="widget-box">
+      <div class="widget-title"> <span class="icon"><i class="icon-time"></i></span>
+        <h5>用户列表</h5>
+        <span class="label label-info">1</span> </div>
+      <div class="widget-content nopadding">
+        <table class="table table-striped table-bordered">
+          <thead>
+            <tr>
+              <th>用户名</th>
+              <th>操作</th>
+            </tr>
+          </thead>
+          <tbody>
+          <s:iterator value="list" id="User">
+            <tr>
+              <td class="taskDesc"><i class="icon-info-sign"></i> <s:property value="username"/></td>
+              <td class="taskOptions"><a href="#" class="tip-top" data-original-title="Update"><i class="icon-ok"></i></a> <s:a href="userdelete.action?id=%{#User.id}"  class="tip-top" data-original-title="Delete"><i class="icon-remove"></i></s:a></td>
+            </tr>
+            </s:iterator>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
+</div>
 </div>
 <script src="../assets/js/jquery.min.js"></script> 
 <script src="../assets/js/jquery.ui.custom.js"></script> 
 <script src="../assets/js/bootstrap.min.js"></script> 
-<script src="../assets/js/jquery.uniform.js"></script> 
-<script src="../assets/js/select2.min.js"></script> 
-<script src="../assets/js/unicorn.js"></script> 
-<script src="../assets/js/jquery.dataTables.min.js"></script> 
-<script src="../assets/js/unicorn.tables.js"></script>
+<script src="../assets/js/unicorn.js"></script>
 </body>
 </html>

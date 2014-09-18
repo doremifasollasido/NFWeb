@@ -22,3 +22,95 @@ body{
 	padding-left:20px;
 	margin-bottom:15px;
 }
+
+/*ึ๗าณ*/
+		.navbar,.navbar-inner{
+				height:65px;
+			}
+			.navbar .nav{
+				font-size:22px;
+				margin-top:15px;
+			}
+			.navbar .brand img{
+				width:200px;
+				height:50px;
+			}
+			.search-position{
+				margin-top:18px;
+				width:300px;
+				float:left;
+				position:relative;
+			}
+			.sider{
+				position: fixed;
+				float:right;
+			}
+			.sider li{
+				border-bottom:1px solid #e5e5e5;
+			}
+			.sider img{
+				width:70px;
+				height:70px;
+				margin-left:10px;
+				margin-bottom:10px;
+			}
+			.media a img{
+				width:40px;
+				height:40px;
+			}
+			.username{
+				color:#435E99;
+			}
+			.classes{
+				color:#B1B1B1;
+			}
+			.mood-picture{
+				margin-top:10px;
+				/*height:480px;*/
+
+			}
+			.mood-picture ul{
+				width:400px;
+				list-style-type:none;
+				margin-top:5px;
+				background:#900;
+				padding:0;
+				margin-left:5px;
+			}
+			.mood-picture li{
+				float:left;
+				margin-right:4px;
+				width:76px;
+			}
+			.mood-picture li img{
+				width:76px;
+				height:57px;
+			}
+			.mood-picture span{
+				display:block;
+				color:#435E99;
+				clear:both;
+				padding-top:5px;
+			}
+			.time{
+				color:#B3B3B3;
+				font-size:12px;
+			}
+			.span8>ul>li{
+				border-bottom:1px solid #e5e5e5;
+				margin-bottom:15px;
+				padding-bottom:15px;
+			}
+			.at-content {
+			    height: auto;
+				background: #F4F4F4;
+				/*background: #0FF;*/
+			    box-shadow: 0 0 4px #A2A2A2;
+			    border-radius: 7px;
+			    overflow: hidden !important;
+			    position: relative;
+				padding-top:10px;
+				padding-bottom:10px;
+				padding-left:20px;
+				margin-bottom:15px;
+			}

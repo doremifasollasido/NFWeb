@@ -59,13 +59,67 @@
                 <td>今天天气很好~</td>
                 <td class="center"><a href="" class="tip-top" data-original-title="Delete"><i class="icon-remove"></i></a></td>
               </tr>
+              <tr class="gradeX">
+                <td>小名</td>
+                <td>今天天气很好~</td>
+                <td class="center"><a href="" class="tip-top" data-original-title="Delete"><i class="icon-remove"></i></a></td>
+              </tr>
+              <tr class="gradeX">
+                <td>小名</td>
+                <td>今天天气很好~</td>
+                <td class="center"><a href="" class="tip-top" data-original-title="Delete"><i class="icon-remove"></i></a></td>
+              </tr>
+              <tr class="gradeX">
+                <td>小名</td>
+                <td>今天天气很好~</td>
+                <td class="center"><a href="" class="tip-top" data-original-title="Delete"><i class="icon-remove"></i></a></td>
+              </tr>
+              <tr class="gradeX">
+                <td>小名</td>
+                <td>今天天气很好~</td>
+                <td class="center"><a href="" class="tip-top" data-original-title="Delete"><i class="icon-remove"></i></a></td>
+              </tr>
+              <tr class="gradeX">
+                <td>小名</td>
+                <td>今天天气很好~</td>
+                <td class="center"><a href="" class="tip-top" data-original-title="Delete"><i class="icon-remove"></i></a></td>
+              </tr>
+              <tr class="gradeX">
+                <td>小名</td>
+                <td>今天天气很好~</td>
+                <td class="center"><a href="" class="tip-top" data-original-title="Delete"><i class="icon-remove"></i></a></td>
+              </tr>
+              <tr class="gradeX">
+                <td>小名</td>
+                <td>今天天气很好~</td>
+                <td class="center"><a href="" class="tip-top" data-original-title="Delete"><i class="icon-remove"></i></a></td>
+              </tr>
+              <tr class="gradeX">
+                <td>小名</td>
+                <td>今天天气很好~</td>
+                <td class="center"><a href="" class="tip-top" data-original-title="Delete"><i class="icon-remove"></i></a></td>
+              </tr>
+              <tr class="gradeX">
+                <td>小名</td>
+                <td>今天天气很好~</td>
+                <td class="center"><a href="" class="tip-top" data-original-title="Delete"><i class="icon-remove"></i></a></td>
+              </tr>
+              <tr class="gradeX">
+                <td>小名</td>
+                <td>今天天气很好~</td>
+                <td class="center"><a href="" class="tip-top" data-original-title="Delete"><i class="icon-remove"></i></a></td>
+              </tr>
+              <tr class="gradeX">
+                <td>小名</td>
+                <td>今天天气很好~</td>
+                <td class="center"><a href="" class="tip-top" data-original-title="Delete"><i class="icon-remove"></i></a></td>
+              </tr>
             </tbody>
           </table>
         </div>
-      </div>
+      </div><!--widget-box-->
     </div>
   </div>
-</div>
 </div>
 <script src="../assets/js/jquery.min.js"></script> 
 <script src="../assets/js/jquery.ui.custom.js"></script> 

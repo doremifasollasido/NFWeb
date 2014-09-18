@@ -31,18 +31,18 @@ body {
 	float: left;
 	position: relative;
 }
-#tab1{
-	padding:0;
+#tab1 {
+	padding: 0;
 	margin: 10px 0 0 150px
 }
-#tab2{
-	padding:0;
-	height:400px;
+#tab2 {
+	padding: 0;
+	height: 400px;
 	margin: 0px 0 0 150px
 }
-#tab3{
-	padding:0;
-	height:400px;
+#tab3 {
+	padding: 0;
+	height: 400px;
 	margin: 10px 0 0 150px
 }
 .baseinfo {
@@ -114,8 +114,8 @@ body {
                   <label class="control-label" for="inputSex">性别：</label>
                   <div class="controls">
                     <select name="inputSex">
-                    	<option value="男">男</option>
-                        <option value="女">女</option>
+                      <option value="男">男</option>
+                      <option value="女">女</option>
                     </select>
                   </div>
                 </div>
@@ -129,29 +129,29 @@ body {
                   <label class="control-label" for="inputDesc">就读于：</label>
                   <div class="controls">
                     <select name="inputDesc">
-                    	<option value="电子通讯与软件工程系">电子通讯与软件工程</option>
-                        <option value="会计系">会计系</option>
-                        <option value="文传系">文传系</option>
+                      <option value="电子通讯与软件工程系">电子通讯与软件工程</option>
+                      <option value="会计系">会计系</option>
+                      <option value="文传系">文传系</option>
                     </select>
                   </div>
                 </div>
                 <div class="control-group">
                   <label class="control-label" for="inputMajor"></label>
-                  <div class="controls">                
-                     <select name="inputMajor">
-                    	<option value="计算机科学与技术专业">计算机科学与技术专业</option>
-                        <option value="电子专业">电子专业</option>
-                        <option value="通信专业">通信专业</option>
+                  <div class="controls">
+                    <select name="inputMajor">
+                      <option value="计算机科学与技术专业">计算机科学与技术专业</option>
+                      <option value="电子专业">电子专业</option>
+                      <option value="通信专业">通信专业</option>
                     </select>
                   </div>
                 </div>
                 <div class="control-group">
                   <label class="control-label" for="inputClass"></label>
-                  <div class="controls">                
-                     <select name="inputClass">
-                    	<option value="1班">1班</option>
-                        <option value="2班">2班</option>
-                        <option value="3班">3班</option>
+                  <div class="controls">
+                    <select name="inputClass">
+                      <option value="1班">1班</option>
+                      <option value="2班">2班</option>
+                      <option value="3班">3班</option>
                     </select>
                   </div>
                 </div>
@@ -160,7 +160,7 @@ body {
                   <div class="controls">
                     <input type="password" id="inputAddr" placeholder="">
                   </div>
-                </div>               
+                </div>
                 <div class="control-group">
                   <div class="controls">
                     <button type="submit" class="btn btn-info">保存信息</button>
@@ -170,37 +170,37 @@ body {
             </div>
           </div>
           <div class="tab-pane" id="tab2">
-            <div class="baseinfo">                
-            	<img width="140" height="140" src="../assets/img/test/av1.jpg" class="img-polaroid"><br/><br/>
-                <a href="#" class="btn btn-success">保存头像</a>
-            </div>
+            <div class="baseinfo"> <img width="140" height="140" src="../assets/img/test/av1.jpg" class="img-polaroid"><br/>
+              <br/>
+              <a href="#" class="btn btn-success">保存头像</a> </div>
           </div>
           <div class="tab-pane" id="tab3">
             <div class="widget-content nopadding">
-								<form action="#" method="get" class="form-horizontal" />
-									<div class="control-group">
-										<label class="control-label">QQ：</label>
-										<div class="controls">
-											<input type="text" />
-										</div>
-									</div>
-									<div class="control-group">
-										<label class="control-label">手机：</label>
-										<div class="controls">
-											<input type="text" />
-										</div>
-									</div>
-									<div class="control-group">
-										<label class="control-label">Email</label>
-										<div class="controls">
-											<input type="email"/>
-										</div>
-									</div>
-									<div class="form-actions">
-										<button type="submit" class="btn btn-primary">保存信息</button>
-									</div>
-								</form>
-							</div>
+              <form action="#" method="get" class="form-horizontal" />
+              
+              <div class="control-group">
+                <label class="control-label">QQ：</label>
+                <div class="controls">
+                  <input type="text" />
+                </div>
+              </div>
+              <div class="control-group">
+                <label class="control-label">手机：</label>
+                <div class="controls">
+                  <input type="text" />
+                </div>
+              </div>
+              <div class="control-group">
+                <label class="control-label">Email</label>
+                <div class="controls">
+                  <input type="email"/>
+                </div>
+              </div>
+              <div class="form-actions">
+                <button type="submit" class="btn btn-primary">保存信息</button>
+              </div>
+              </form>
+            </div>
           </div>
         </div>
       </div>

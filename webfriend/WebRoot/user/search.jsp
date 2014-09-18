@@ -31,9 +31,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             
             <div class="nav-collapse collapse">
                 <ul class="nav">
-                  <li class="active"><a href="#"><img src="assets/img/icons/20/home.png"> 首页</a></li>
+                  <li><a href="#"><img src="assets/img/icons/20/home.png"> 首页</a></li>
                   <li><a href="#"><img src="assets/img/icons/20/user.png"> 好友</a></li>
-                  <li><a href="#"><img src="assets/img/icons/20/search.png"> 查找好友</a></li>
+                  <li  class="active"><a href="#"><img src="assets/img/icons/20/search.png"> 查找好友</a></li>
                 </ul>
                 <!--搜索-->
                 <div class="search-position">

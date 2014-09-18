@@ -114,3 +114,17 @@ body{
 				padding-left:20px;
 				margin-bottom:15px;
 			}
+/*∫√”—¡–±Ì*/
+.container{
+	width:1000px;
+}
+.friend-search{
+	padding-top:15px;
+}
+.friend-list ul{
+	width:1000px;
+}
+.thumbnail img{
+	height:170px;
+	width:150px;
+}

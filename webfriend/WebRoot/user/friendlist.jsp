@@ -1,4 +1,4 @@
-﻿<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -54,17 +54,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
  	</div><!--navbar end-->
     
     <div class="container" style="margin-top:70px;">
-            <div class="row">
-            	<div class="span6 offset2 friend-search">
-                    <form action="#" method="post">
-                    	<div class="input-append">
-                          <input class="span5" id="appendedInputButton" type="text" style="height:32px;">
-                          <button class="btn" type="button" style="width:70px;"><img src="assets/img/icons/32/searchf.png"</button>
-                        </div>
-                    </form>
-                 </div>
-                 
-           </div><!--row end-->
            <div class="row">
            		<div class="span12 friend-list">
                 	<ul class="thumbnails">

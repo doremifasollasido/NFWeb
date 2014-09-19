@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="stylesheet" href="../assets/css/bootstrap.min.css" />
 <link rel="stylesheet" href="../assets/css/bootstrap-responsive.min.css" />
-<link rel="stylesheet" href="../assets/css/style.css" />
+
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 </head>
 <style>
@@ -34,7 +34,7 @@ body {
 .sider ul li {
 	margin: 0;
 }
-.sider ul li img {
+.span3 ul li img {
 	width: 160px;
 	height: 160px;
 	margin: 0px;
@@ -125,12 +125,12 @@ body {
 
 <div class="container-fluid" style="margin:88px 80px 0 80px;">
 <div class="row-fluid">
-<div class="span3 sider" style="margin-right:0px;">
+<div class="span3" style="margin-right:0px;">
   <ul style="list-style:none; border-bottom:1px solid #eaeaea;margin-bottom:35px">
     <li>
-      <center>
-        <img src="../assets/img/test/test6.jpg">
-      </center>
+    	<center>
+        <img src="../assets/img/test/test6.jpeg">
+		</center>
     </li>
     <li>
       <center>
@@ -141,12 +141,12 @@ body {
   <div class="span12 relations">
     　　<strong>关系交集：</strong><br/>
   	<ul style="list-style:none;">
-         <li><img class="img-polaroid pull-left" src="../assets/img/test/test2.jpg"></li>
-         <li><img class="img-polaroid pull-left" src="../assets/img/test/test2.jpg"></li>
-         <li><img class="img-polaroid pull-left" src="../assets/img/test/test2.jpg"></li>
-         <li><img class="img-polaroid pull-left" src="../assets/img/test/test2.jpg"></li>
-         <li><img class="img-polaroid pull-left" src="../assets/img/test/test2.jpg"></li>
-         <li><img class="img-polaroid pull-left" src="../assets/img/test/test2.jpg"></li>
+         <li><img class="img-polaroid pull-left" src="../assets/img/test/test6.jpg"></li>
+         <li><img class="img-polaroid pull-left" src="../assets/img/test/test6.jpg"></li>
+         <li><img class="img-polaroid pull-left" src="../assets/img/test/test6.jpg"></li>
+         <li><img class="img-polaroid pull-left" src="../assets/img/test/test6.jpg"></li>
+         <li><img class="img-polaroid pull-left" src="../assets/img/test/test6.jpg"></li>
+         <li><img class="img-polaroid pull-left" src="../assets/img/test/test6.jpg"></li>
     </ul>
   </div>
 </div>

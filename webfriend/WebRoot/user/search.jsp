@@ -14,13 +14,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<link rel="stylesheet" href="assets/css/bootstrap.min.css" />
 	<link rel="stylesheet" href="assets/css/bootstrap-responsive.min.css" />
     <link rel="stylesheet" href="assets/css/style.css" />
+    <script type="text/javascript" src="assets/js/city_dept.js"></script>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
 	<style>
 	.container{
 		width:1000px;
 	}
 	</style>
-   <body background="assets/img/bg4.jpg">
+   <body onLoad="onload()" background="assets/img/bg4.jpg">
 	<!--导航条-->
     <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
@@ -60,14 +61,36 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <div class="container" style="margin-top:70px;">
             <div class="row">
             	<div class="span6 offset2 friend-search">
-                    <form action="#" method="post">
-                    	<div class="input-append">
-                          <input class="span5" id="appendedInputButton" type="text" style="height:32px;">
-                          <button class="btn" type="button" style="width:70px;"><img src="assets/img/icons/32/searchf.png"></button>
-                        </div>
-                    </form>
-                 </div>
-                 
+                    <form action="#" method="post" name="form1">
+                    	<p>
+                    		<strong>按姓名搜索：</strong>
+                        	<input class="span4" type="text" style="height:28px;">
+                        </p>
+                        <p>
+                        	<strong>按地区搜索：</strong>
+                        	<select name="province" onchange="cityName(this.selectedIndex)"> 
+                                <option value="">请选择省名</option> 
+                              </select>
+                              <select name="city"> 
+                                <option value="">请选择城名</option> 
+                              </select>
+                        </p>
+                        <p>
+                        	<strong>按专业搜索：</strong>
+                        	<select name="dept" onchange="majorName(this.selectedIndex)"> 
+                                <option value="">请选择所在系</option> 
+                            </select>
+                            <select name="major"> 
+                                <option value="">请选择专业</option> 
+                            </select>
+                        </p>
+                 </div> 
+                 <div class="span1" style="margin-top:65px; margin-left:0;">
+                     <button class="btn" type="button" style="width:80px;">
+                        <img src="assets/img/icons/32/searchf.png">
+                     </button>
+                </div> 
+                </form>
            </div><!--row end-->
            <div class="row">
            		<div class="span12 friend-list">

@@ -15,7 +15,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <link rel="stylesheet" href="../assets/css/style.css" />
        <script type="text/javascript" src="../assets/js/jquery.min.js"></script>
 	   <script type="text/javascript" src="../assets/js/register.js"></script> 
-       <script type="text/javascript" src="../assets/js/ckcity.js"></script>
+       <script type="text/javascript" src="../assets/js/city_dept.js"></script>
 
     	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <style>
@@ -96,16 +96,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                           </div>
                           <!-- 系名-->
                           <div class="control-group">
-                            <label class="control-label" for="dept">系名</label>
+                            <label class="control-label">系</label>
                             <div class="controls">
-                              <input type="text" id="dept" name="dept" placeholder="系名">
+                              <select name="dept" onchange="majorName(this.selectedIndex)"> 
+                                <option value="">请选择所在系</option> 
+                              </select>
                             </div>
                           </div>
                           <!-- 专业-->
                           <div class="control-group">
-                            <label class="control-label" for="major">专业</label>
+                            <label class="control-label">专业</label>
                             <div class="controls">
-                              <input type="text" id="major" name="major" placeholder="专业">
+                              <select name="major"> 
+                                <option value="">请选择专业</option> 
+                              </select> 
                             </div>
                           </div>
                           <!-- 班级-->

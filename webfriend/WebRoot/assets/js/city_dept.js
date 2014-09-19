@@ -1,4 +1,35 @@
 ﻿// JavaScript Document
+/*
+ * 系-专业
+ * */
+//文学与传媒系
+var major1 = ["汉语言文学","新闻学"]; 
+//会计学系
+var major2 = ["财务管理","会计学"]; 
+//工商管理系
+var major3 = ["物流管理","市场营销","工商管理","电子商务"]; 
+//公共管理学系
+var major4 = ["行政管理","公共关系学","人力资源管理"]; 
+//外国语言文学系
+var major5 = ["英语","汉语国际教育","日语","法语"];
+//经济学与商务管理系
+var major6 = ["经济学","国际经济与贸易","旅游管理"];
+//电子通信与软件工程系
+var major7 = ["计算机科学与技术","电子信息科学与技术","通信工程"];
+//艺术设计与创意产业系
+var major8 = ["艺术设计学","数字媒体艺术","公共艺术"];
+//音乐系
+var major9 = ["音乐学"];
+//健康与护理系
+var major10 = ["护理学"];
+
+//系名称
+var deptName = ["文学与传媒系","会计学系","工商管理系","公共管理学系","外国语言文学系","经济学与商务管理系","电子通信与软件工程系","艺术设计与创意产业系","音乐系","健康与护理系"];
+
+
+/*
+ * 省-市
+ * */
 //北京市辖区名称
 var city1 = ["东城区","西城区","崇文区","宣武区","朝阳区","海淀区","丰台区","石景山区","房山区","通州区","顺义区","门头沟区","昌平区","大兴区","怀柔区","平谷区","密云县","延庆县"]; 
 //上海市辖区名称
@@ -74,12 +105,24 @@ var city35 = ["其它地区"];
 var provinceName = ["北京市","上海市","天津市","重庆市","河北省","山西省","辽宁省","吉林省","河南省","江苏省","浙江省","安徽省","福建省","江西省","山东省","湖北省","湖南省","广东省","海南省","四川省","贵州省","云南省","陕西省","甘肃省","青海省","黑龙江省","内蒙古自治区","广西壮族自治区","西藏自治区","宁夏回族自治区","新疆维吾尔自治区","台湾省","香港特别行政区","澳门特别行政区","其它"];
 
 
-function province() 
+function city_dept() 
 {
-
-    var e = document.form1.province; 
+	//系-专业
+    var e = document.form1.dept; 
+    for (var i=0; i<deptName.length; i++) 
+       e.options.add(new Option(deptName[i], deptName[i])); 
+    //省-市
+    var e2 = document.form1.province; 
     for (var i=0; i<provinceName.length; i++) 
-       e.options.add(new Option(provinceName[i], provinceName[i])); 
+       e2.options.add(new Option(provinceName[i], provinceName[i])); 
+} 
+function majorName(n) 
+{ 
+    var e = document.form1.major; 
+    for (var i=e.options.length; i>0; i--)  e.remove(i); 
+    if (n == 0) return; 
+    var a = eval("major"+ n); //得到城市的数组名 
+    for (var i=0; i<a.length; i++) e.options.add(new Option(a[i], a[i])); 
 } 
 function cityName(n) 
 { 
@@ -88,8 +131,8 @@ function cityName(n)
     if (n == 0) return; 
     var a = eval("city"+ n); //得到城市的数组名 
     for (var i=0; i<a.length; i++) e.options.add(new Option(a[i], a[i])); 
-} 
+}
 function onload() 
 { 
-    province(); //初始时给省名下拉菜单赋内容 
+	city_dept(); //初始时给省名下拉菜单赋内容 
 } 

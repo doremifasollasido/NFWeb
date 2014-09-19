@@ -170,9 +170,14 @@ body {
             </div>
           </div>
           <div class="tab-pane" id="tab2">
-            <div class="baseinfo"> <img width="140" height="140" src="../assets/img/test/av1.jpg" class="img-polaroid"><br/>
+            <form action="" name="pic">
+              <img src="" id="img0" width="140" height="140"/>
+              <input type="file" name="image" id="image" multiplse />
               <br/>
-              <a href="#" class="btn btn-success">保存头像</a> </div>
+              <br/>
+              <br/>
+              <button type="submit" class="btn btn-success">保存头像</button>
+            </form>
           </div>
           <div class="tab-pane" id="tab3">
             <div class="widget-content nopadding">
@@ -214,7 +219,30 @@ body {
 </div>
 <!--container end-->
 <div class="modal-footer" style="text-align:center"> Copyright © 2014 - 2015 Tencent.中山大学南方学院-JAVA班-7组 版权所有 </div>
+
 <script src="../assets/js/jquery.min.js"></script> 
 <script src="../assets/js/bootstrap.min.js"></script>
+<script>	
+		/*头像上传预览*/
+		  $("#image").change(function(){
+			  var objUrl = getObjectURL(this.files[0]) ;
+			  console.log("objUrl = "+objUrl) ;
+			  if (objUrl) {
+				  $("#img0").attr("src", objUrl) ;
+			  }
+		  }) ;
+		  //建立一個可存取到該file的url
+		  function getObjectURL(file) {
+			  var url = null ; 
+			  if (window.createObjectURL!=undefined) { // basic
+				  url = window.createObjectURL(file) ;
+			  } else if (window.URL!=undefined) { // mozilla(firefox)
+				  url = window.URL.createObjectURL(file) ;
+			  } else if (window.webkitURL!=undefined) { // webkit or chrome
+				  url = window.webkitURL.createObjectURL(file) ;
+			  }
+			  return url ;
+		  }
+</script> 
 </body>
 </html>

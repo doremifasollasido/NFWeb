@@ -5,7 +5,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 %>
 
 <!doctype html>
-<html>
+<html  onLoad="onload()">
 	<head>
 		<title>南方交友平台</title>
 		<meta charset="UTF-8" />
@@ -14,10 +14,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<link rel="stylesheet" href="../assets/css/bootstrap-responsive.min.css" />
         <link rel="stylesheet" href="../assets/css/style.css" />
        <script type="text/javascript" src="../assets/js/jquery.min.js"></script>
-	            <script type="text/javascript" src="../assets/js/register.js"></script> 
-        
-        
-        
+	   <script type="text/javascript" src="../assets/js/register.js"></script> 
+       <script type="text/javascript" src="../assets/js/ckcity.js"></script>
+
     	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <style>
 			.container{
@@ -25,7 +24,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			}
 		</style>
 	</head>
-    <body background="../assets/img/bg4.jpg">
+    <body onLoad="onload()" background="../assets/img/bg4.jpg" >
 		<div class="container">
         	<div class="row">
             	<div class="register-header">
@@ -38,7 +37,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     	<a href="login.jsp">&lt;返回登录</a>
                     </div>
                 	<div class="span12">
-                        <form class="form-horizontal" action="register.action" method="post">
+                        <form class="form-horizontal" action="register.action" method="post" name="form1">
                         	<!--姓名 -->
                           <div class="control-group">
                             <label class="control-label" for="username">用户名</label>
@@ -83,7 +82,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                           <div class="control-group">
                             <label class="control-label" for="image">上传头像</label>
                             <div class="controls">
-                              <input type="file" id="image">
+                              <img src="" id="img0" width="80" height="80">
+                              <input type="file" name="image" id="image" multiple="multiple" />
                             </div>
                           </div>
                           <!-- 邮箱-->
@@ -117,9 +117,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                           </div>
                           <!-- 籍贯-->
                           <div class="control-group">
-                            <label class="control-label" for="address">籍贯</label>
+                            <label class="control-label">籍贯</label>
                             <div class="controls">
-                              <input type="text" id="address" name="address" placeholder="籍贯">
+                              <select name="province" onchange="cityName(this.selectedIndex)"> 
+                                <option value="">请选择省名</option> 
+                              </select>
+                              <select name="city"> 
+                                <option value="">请选择城名</option> 
+                              </select> 
                             </div>
                           </div>
                           <!-- 注册按钮-->
@@ -135,6 +140,28 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         </div>
         
     	<script src="../assets/js/jquery.min.js"></script>  
+        <script>	
+		/*头像上传预览*/
+		  $("#image").change(function(){
+			  var objUrl = getObjectURL(this.files[0]) ;
+			  console.log("objUrl = "+objUrl) ;
+			  if (objUrl) {
+				  $("#img0").attr("src", objUrl) ;
+			  }
+		  }) ;
+		  //建立一個可存取到該file的url
+		  function getObjectURL(file) {
+			  var url = null ; 
+			  if (window.createObjectURL!=undefined) { // basic
+				  url = window.createObjectURL(file) ;
+			  } else if (window.URL!=undefined) { // mozilla(firefox)
+				  url = window.URL.createObjectURL(file) ;
+			  } else if (window.webkitURL!=undefined) { // webkit or chrome
+				  url = window.webkitURL.createObjectURL(file) ;
+			  }
+			  return url ;
+		  }
+		</script>
 	</body>
 </html>
 

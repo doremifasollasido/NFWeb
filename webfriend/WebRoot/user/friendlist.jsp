@@ -15,7 +15,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<link rel="stylesheet" href="assets/css/bootstrap-responsive.min.css" />
     <link rel="stylesheet" href="assets/css/style.css" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
-
+	<style>
+	.container{
+		width:1000px;
+	}
+	</style>
    <body background="assets/img/bg4.jpg">
 	<!--导航条-->
     <div class="navbar navbar-fixed-top">
@@ -60,42 +64,42 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                       <li class="span2">
                         <div class="thumbnail">
                           <img src="assets/img/test/test2.jpg" alt="">
-                          <h5>姓名<a href="#" class="btn btn-info btn-mini pull-right">加为好友</a></h5>
+                          <h5>姓名<a href="#" class="btn btn-success btn-mini pull-right">取消关注</a></h5>
                           <p>专业-班级</p>
                         </div>
                       </li>
                       <li class="span2">
                         <div class="thumbnail">
                           <img src="assets/img/test/test1.jpg" alt="">
-                          <h5>姓名<a href="#" class="btn btn-info btn-mini pull-right">加为好友</a></h5>
+                          <h5>姓名<a href="#" class="btn btn-success btn-mini pull-right">取消关注</a></h5>
                           <p>专业-班级</p>
                         </div>
                       </li>
                       <li class="span2">
                         <div class="thumbnail">
                           <img src="assets/img/test/test1.jpg" alt="">
-                          <h5>姓名<a href="#" class="btn btn-info btn-mini pull-right">加为好友</a></h5>
+                          <h5>姓名<a href="#" class="btn btn-success btn-mini pull-right">取消关注</a></h5>
                           <p>专业-班级</p>
                         </div>
                       </li>
                       <li class="span2">
                         <div class="thumbnail">
                           <img src="assets/img/test/test1.jpg" alt="">
-                          <h5>姓名<a href="#" class="btn btn-info btn-mini pull-right">加为好友</a></h5>
+                          <h5>姓名<a href="#" class="btn btn-success btn-mini pull-right">取消关注</a></h5>
                           <p>专业-班级</p>
                         </div>
                       </li>
                       <li class="span2">
                         <div class="thumbnail">
                           <img src="assets/img/test/test1.jpg" alt="">
-                          <h5>姓名<a href="#" class="btn btn-info btn-mini pull-right">加为好友</a></h5>
+                          <h5>姓名<a href="#" class="btn btn-success btn-mini pull-right">取消关注</a></h5>
                           <p>专业-班级</p>
                         </div>
                       </li>
                       <li class="span2">
                         <div class="thumbnail">
                           <img src="assets/img/test/test1.jpg" alt="">
-                          <h5>姓名<a href="#" class="btn btn-info btn-mini pull-right">加为好友</a></h5>
+                          <h5>姓名<a href="#" class="btn btn-success btn-mini pull-right">取消关注</a></h5>
                           <p>专业-班级</p>
                         </div>
                       </li>

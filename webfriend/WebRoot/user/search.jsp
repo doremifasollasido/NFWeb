@@ -15,7 +15,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<link rel="stylesheet" href="assets/css/bootstrap-responsive.min.css" />
     <link rel="stylesheet" href="assets/css/style.css" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
-
+	<style>
+	.container{
+		width:1000px;
+	}
+	</style>
    <body background="assets/img/bg4.jpg">
 	<!--导航条-->
     <div class="navbar navbar-fixed-top">
@@ -59,7 +63,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     <form action="#" method="post">
                     	<div class="input-append">
                           <input class="span5" id="appendedInputButton" type="text" style="height:32px;">
-                          <button class="btn" type="button" style="width:70px;"><img src="assets/img/icons/32/searchf.png"</button>
+                          <button class="btn" type="button" style="width:70px;"><img src="assets/img/icons/32/searchf.png"></button>
                         </div>
                     </form>
                  </div>

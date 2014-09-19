@@ -10,9 +10,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <base href="<%=basePath%>">
     <meta charset="UTF-8" />
     <title>南方交友平台</title>
-    <link rel="stylesheet" href="../assets/css/bootstrap.min.css" />
-		<link rel="stylesheet" href="../assets/css/bootstrap-responsive.min.css" />
-        <link rel="stylesheet" href="../assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="assets/css/bootstrap-responsive.min.css" />
+        <link rel="stylesheet" href="assets/css/style.css" />
     	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
     <body>
     <!--导航条-->
@@ -25,13 +25,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                <span class="icon-bar"></span>
             </a>
             
-            <a class="brand" href="#"><img src="../assets/img/logo.png"></a>
+            <a class="brand" href="#"><img src="assets/img/logo.png"></a>
             
             <div class="nav-collapse collapse">
                 <ul class="nav">
-                  <li class="active"><a href="#"><img src="../assets/img/icons/20/home.png"> 首页</a></li>
-                  <li><a href="#"><img src="../assets/img/icons/20/user.png"> 好友</a></li>
-                  <li><a href="#"><img src="../assets/img/icons/20/search.png"> 查找好友</a></li>
+                  <li class="active"><a href="#"><img src="assets/img/icons/20/home.png"> 首页</a></li>
+                  <li><a href="#"><img src="assets/img/icons/20/user.png"> 好友</a></li>
+                  <li><a href="#"><img src="assets/img/icons/20/search.png"> 查找好友</a></li>
                 </ul>
                 <!--搜索-->
                 <div class="search-position">
@@ -57,7 +57,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             	<div class="span2 offset1">
                     <div class="dropdown clearfix sider">
                           <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu" style="display: block; position: static; margin-top:20px; *width: 180px;">
-                            <li><img src="../assets/img/test/av1.jpg"><span style="margin-left:10px;">姓名</span></li>
+                            <li><img src="assets/img/test/av1.jpg"><span style="margin-left:10px;">姓名</span></li>
                             <li>
                             	<a tabindex="-1" href="#">
                                 	全部动态&nbsp;&nbsp;&nbsp;&nbsp;
@@ -87,7 +87,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                         	<li>
                               <div class="media"><!--头像-->
                                 <a class="pull-left" href="#">
-                                  <img class="media-object" src="../assets/img/test/av1.jpg">
+                                  <img class="media-object" src="assets/img/test/av1.jpg">
                                 </a>
                                 <div class="media-body" ><!--心情内容-->
                                   <div class="media-heading">
@@ -96,13 +96,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                   </div>
                                   发表的心情Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.
                                   <div class="mood-picture">
-                                      <img src="../assets/img/test/test1.jpg" width="400" height="300">
+                                      <img src="assets/img/test/test1.jpg" width="400" height="300">
                                       <ul>
-                                        <li><img src="../assets/img/test/test1.jpg"></li>
-                                        <li><img src="../assets/img/test/test2.jpg"></li>
-                                        <li><img src="../assets/img/test/test3.jpg"></li>
-                                        <li><img src="../assets/img/test/test4.jpg"></li>
-                                        <li><img src="../assets/img/test/test5.jpg"></li>
+                                        <li><img src="assets/img/test/test1.jpg"></li>
+                                        <li><img src="assets/img/test/test2.jpg"></li>
+                                        <li><img src="assets/img/test/test3.jpg"></li>
+                                        <li><img src="assets/img/test/test4.jpg"></li>
+                                        <li><img src="assets/img/test/test5.jpg"></li>
                                       </ul>
                                       
                                       <span>
@@ -113,7 +113,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                              
                                       <div class="media" style="clear:left;"><!--评论-->
                                         <a class="pull-left" href="#"><!--头像-->
-                                          <img class="media-object" src="../assets/img/test/av1.jpg">
+                                          <img class="media-object" src="assets/img/test/av1.jpg">
                                         </a>
                                         <div class="media-body"><!--评论内容-->
                                           <div class="media-heading">
@@ -125,7 +125,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                           <!--回复评论-->
                                           <div class="media" style="clear:left;"><!--评论-->
                                             <a class="pull-left" href="#"><!--头像-->
-                                              <img class="media-object" src="../assets/img/test/av1.jpg">
+                                              <img class="media-object" src="assets/img/test/av1.jpg">
                                             </a>
                                             <div class="media-body"><!--评论内容-->
                                               <div class="media-heading">
@@ -141,7 +141,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                       <!--第二条评论-->
                                       <div class="media" style="clear:left;"><!--评论-->
                                         <a class="pull-left" href="#"><!--头像-->
-                                          <img class="media-object" src="../assets/img/test/av1.jpg">
+                                          <img class="media-object" src="assets/img/test/av1.jpg">
                                         </a>
                                         <div class="media-body"><!--评论内容-->
                                           <div class="media-heading">
@@ -154,7 +154,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                       </div><!--media end-->
                                         <div class="media" style="clear:left;"><!--评论-->
                                           <a class="pull-left" href="#"><!--头像-->
-                                             <img class="media-object" src="../assets/img/test/av1.jpg">
+                                             <img class="media-object" src="assets/img/test/av1.jpg">
                                           </a>
                                           	<div class="media-body"><!--评论内容-->
                                               <div class="media-heading">
@@ -173,7 +173,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                            <li>
                               <div class="media"><!--头像-->
                                 <a class="pull-left" href="#">
-                                  <img class="media-object" src="../assets/img/test/av1.jpg">
+                                  <img class="media-object" src="assets/img/test/av1.jpg">
                                 </a>
                                 <div class="media-body" ><!--心情内容-->
                                   <div class="media-heading">
@@ -182,13 +182,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                   </div>
                                   发表的心情Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.
                                   <div class="mood-picture">
-                                      <img src="../assets/img/test/test2.jpg" width="400" height="300">
+                                      <img src="assets/img/test/test2.jpg" width="400" height="300">
                                       <ul>
-                                        <li><img src="../assets/img/test/test2.jpg"></li>
-                                        <li><img src="../assets/img/test/test2.jpg"></li>
-                                        <li><img src="../assets/img/test/test2.jpg"></li>
-                                        <li><img src="../assets/img/test/test2.jpg"></li>
-                                        <li><img src="../assets/img/test/test2.jpg"></li>
+                                        <li><img src="assets/img/test/test2.jpg"></li>
+                                        <li><img src="assets/img/test/test2.jpg"></li>
+                                        <li><img src="assets/img/test/test2.jpg"></li>
+                                        <li><img src="assets/img/test/test2.jpg"></li>
+                                        <li><img src="assets/img/test/test2.jpg"></li>
                                       </ul>
                                       
                                       <span>
@@ -199,7 +199,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                              
                                       <div class="media" style="clear:left;"><!--评论-->
                                         <a class="pull-left" href="#"><!--头像-->
-                                          <img class="media-object" src="../assets/img/test/av1.jpg">
+                                          <img class="media-object" src="assets/img/test/av1.jpg">
                                         </a>
                                         <div class="media-body"><!--评论内容-->
                                           <div class="media-heading">
@@ -211,7 +211,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                           <!--回复评论-->
                                           <div class="media" style="clear:left;"><!--评论-->
                                             <a class="pull-left" href="#"><!--头像-->
-                                              <img class="media-object" src="../assets/img/test/av1.jpg">
+                                              <img class="media-object" src="assets/img/test/av1.jpg">
                                             </a>
                                             <div class="media-body"><!--评论内容-->
                                               <div class="media-heading">
@@ -227,7 +227,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                       <!--第二条评论-->
                                       <div class="media" style="clear:left;"><!--评论-->
                                         <a class="pull-left" href="#"><!--头像-->
-                                          <img class="media-object" src="../assets/img/test/av1.jpg">
+                                          <img class="media-object" src="assets/img/test/av1.jpg">
                                         </a>
                                         <div class="media-body"><!--评论内容-->
                                           <div class="media-heading">
@@ -240,7 +240,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                       </div><!--media end-->
                                         <div class="media" style="clear:left;"><!--评论-->
                                           <a class="pull-left" href="#"><!--头像-->
-                                             <img class="media-object" src="../assets/img/test/av1.jpg">
+                                             <img class="media-object" src="assets/img/test/av1.jpg">
                                           </a>
                                           	<div class="media-body"><!--评论内容-->
                                               <div class="media-heading">
@@ -262,6 +262,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <div class="modal-footer" style="text-align:center">
     	Copyright © 2014 - 2015 Tencent.中山大学南方学院-JAVA班-7组 版权所有
     </div>
-    <script src="../assets/js/jquery.min.js"></script>  
+    <script src="assets/js/jquery.min.js"></script>  
 	</body>
 </html>

@@ -61,4 +61,6 @@ public interface MoodService
 	public abstract List<Mood> getFriendMood(Date flushTime, int pageSize,
 			int page, int userId);
 
+	public abstract int addmoodReturnId(Mood mood, User user);
+
 }

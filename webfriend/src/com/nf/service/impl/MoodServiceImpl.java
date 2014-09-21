@@ -1,15 +1,15 @@
 package com.nf.service.impl;
 
-import java.util.Date;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Component;
 
+import com.nf.dao.FriendDao;
 import com.nf.dao.MoodDao;
-import com.nf.dao.UserDao;
 import com.nf.model.Mood;
 import com.nf.model.User;
 import com.nf.service.MoodService;
@@ -24,7 +24,7 @@ public class MoodServiceImpl implements MoodService
 {	
 	private MoodDao moodDao;
 	
-	private UserDao userDao;
+	private FriendDao friendDao;
 	
 	/* (non-Javadoc)
 	 * @see com.nf.service.impl.MoodService#addmood()
@@ -38,6 +38,15 @@ public class MoodServiceImpl implements MoodService
 			resultStr="add fail";
 		}
 		return resultStr;
+	}
+	@Override
+	public int addmoodReturnId(Mood mood,User user){
+		int result = 0;
+		mood.setUser(user);
+		mood.setUptime(new Date());//作为发表心情的时间
+		result = moodDao.addmoodReturnId(mood);
+		
+		return result;
 	}
 	/* (non-Javadoc)
 	 * @see com.nf.service.impl.MoodService#delectOneMoodById(int)
@@ -56,7 +65,7 @@ public class MoodServiceImpl implements MoodService
 	@Override
 	public List<Mood> getSchoolMood(Date flushTime,int pageSize,int page){
 		List<Mood> resultList = new ArrayList<Mood>();
-		resultList = moodDao.querySchoolMood(flushTime, (pageSize*(page-1)), pageSize);
+		resultList = moodDao.querySchoolMood(flushTime, (pageSize*(page-1)), pageSize*page);
 		return resultList;
 	}
 	/* (non-Javadoc)
@@ -65,7 +74,7 @@ public class MoodServiceImpl implements MoodService
 	@Override
 	public List<Mood> getMoodByUserId(Date flushTime,int pageSize,int page,int userId){
 		List<Mood> resultList = new ArrayList<Mood>();
-		resultList = moodDao.queryMoodByUserId(flushTime,  (pageSize*(page-1)), pageSize, userId);
+		resultList = moodDao.queryMoodByUserId(flushTime,  (pageSize*(page-1)), pageSize*page, userId);
 		return resultList;
 	}
 	/* (non-Javadoc)
@@ -74,7 +83,10 @@ public class MoodServiceImpl implements MoodService
 	@Override
 	public List<Mood> getFriendMood(Date flushTime,int pageSize,int page,int userId){
 		List<Mood> resultList = new ArrayList<Mood>();
-		
+		User user = new User();
+		user.setId(userId);
+		Object[] friendArray = friendDao.loadFriendIdAarryByUser(user);
+		resultList = moodDao.queryFriendMood(flushTime, pageSize*(page-1), pageSize*page, userId, friendArray);
 		return resultList;
 	}
 	
@@ -88,15 +100,16 @@ public class MoodServiceImpl implements MoodService
 	{
 		this.moodDao = moodDao;
 	}
-	public UserDao getUserDao()
+	public FriendDao getFriendDao()
 	{
-		return userDao;
+		return friendDao;
 	}
-	@Resource
-	public void setUserDao(UserDao userDao)
+	@Resource(name="friendDaoImpl")
+	public void setFriendDao(FriendDao friendDao)
 	{
-		this.userDao = userDao;
+		this.friendDao = friendDao;
 	}
+	
 	
 	
 }

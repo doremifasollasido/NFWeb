@@ -37,12 +37,5 @@ public interface FriendService
 	 */
 	public abstract List<User> getFriendByUser(User user,int pageSize,int page);
 
-	/**
-	 * 用户查询指定数量的好友id
-	 * @param user 当前用户
-	 * @param pageSize 返回数量
-	 * @param page 需要查询的页码（>0）
-	 * @return 查询指定数量的好友id
-	 */
-	public abstract int[] getFriendIdArrayByUser(User user,int pageSize,int page);
+	
 }

@@ -5,6 +5,7 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -15,7 +16,6 @@ public class AtUserToComment
 {
 	private int id;
 	private User user;
-	private Comment comment;
 	private Date uptime;
 	
 	@Id
@@ -30,6 +30,7 @@ public class AtUserToComment
 		this.id = id;
 	}
 	@ManyToOne
+	@JoinColumn(name="user_id")
 	public User getUser()
 	{
 		return user;
@@ -37,15 +38,6 @@ public class AtUserToComment
 	public void setUser(User user)
 	{
 		this.user = user;
-	}
-	@ManyToOne
-	public Comment getComment()
-	{
-		return comment;
-	}
-	public void setComment(Comment comment)
-	{
-		this.comment = comment;
 	}
 	public Date getUptime()
 	{

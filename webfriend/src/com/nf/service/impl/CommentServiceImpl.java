@@ -1,6 +1,8 @@
 package com.nf.service.impl;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.annotation.Resource;
 
@@ -62,20 +64,30 @@ public class CommentServiceImpl implements CommentService
 		
 		return resultStr;
 	}
+	@Override
+	public List<Comment> getCommentByMoodId(int moodId){
+		List<Comment> list = new ArrayList<Comment>();
+		Mood mood = new Mood();
+		mood.setId(moodId);
+		list = commentDao.loadCommentByMood(mood);
+		return list;
+	}
+	@Override
+	public Comment getCommentById(int commentId){
+		Comment comment = new Comment();
+		
+		comment = commentDao.loadCommentById(commentId);
+		return comment;
+	}
 
 	public CommentDao getCommentDao()
 	{
 		return commentDao;
 	}
-	@Resource(name="comentDaoImpl")
+	@Resource(name="commentDaoImpl")
 	public void setCommentDao(CommentDao commentDao)
 	{
 		this.commentDao = commentDao;
 	}
-	
-	
-	
-	
-	
 	
 }

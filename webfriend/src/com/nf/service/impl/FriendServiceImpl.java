@@ -1,6 +1,5 @@
 package com.nf.service.impl;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -56,16 +55,14 @@ public class FriendServiceImpl implements FriendService
 	 */
 	@Override
 	public List<User> getFriendByUser(User user,int pageSize,int page){
-		List<User> resultList = new ArrayList<User>();
-		
-		
+		List<User> resultList =null;
+		System.out.println("dao");
+		resultList = friendDao.loadFriendByUser(user, pageSize*(page-1), pageSize);
 		return resultList;
 	}
-	@Override
-	public int[] getFriendIdArrayByUser(User user,int pageSize,int page){
-		return friendDao.loadFriendIdAarryByUser(user, pageSize*(page-1), pageSize);
-	}
-
+	
+	
+	
 	public FriendDao getFriendDao()
 	{
 		return friendDao;
@@ -76,7 +73,4 @@ public class FriendServiceImpl implements FriendService
 	{
 		this.friendDao = friendDao;
 	}
-	
-	
-
 }

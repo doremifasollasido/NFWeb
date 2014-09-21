@@ -1,6 +1,6 @@
 package com.nf.action;
 
-import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
@@ -10,82 +10,70 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import com.nf.dto.UserDto;
+import com.nf.model.Friend;
 import com.nf.model.User;
 import com.nf.service.UserService;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
-@Component("loginaction")
+@Component("frienddeleteaction")
 @Scope("prototype")
-public class LoginAction extends ActionSupport  implements ModelDriven,SessionAware{
-	
-	/*
-	 用户登录action
-	 * 
-	 */
+public class FriendDeleteAction extends ActionSupport  implements ModelDriven,SessionAware{
+	private UserService userservice;
+	private UserDto userdto;
 	private Map session;
+	private List list;
+	
+
+	public List getList() {
+		return list;
+	}
+	public void setList(List list) {
+		this.list = list;
+	}
 	public Map getSession() {
 		return session;
 	}
-
-
 	public void setSession(Map session) {
 		this.session = session;
 	}
-
-	private UserDto userdto;
-	private UserService userservice;
-	
 	public UserDto getUserdto() {
 		return userdto;
 	}
-
-    @Resource
+	@Resource
 	public void setUserdto(UserDto userdto) {
 		this.userdto = userdto;
 	}
-
-
 	public UserService getUserservice() {
 		return userservice;
 	}
-
     @Resource
 	public void setUserservice(UserService userservice) {
 		this.userservice = userservice;
 	}
 
-	
-	@Override
-	public String execute() throws Exception {
-		
-		if((userdto.getUsername().length()<4||userdto.getUsername().length()>10)	||(userdto.getPassword().length()<4||userdto.getPassword().length()>10))
-		{
-		String str="用户名或密码不正确";
-			session.put("error",str);
-			return INPUT;
-			
-		}
-		
-	
-		User user =userservice.login(userdto.getUsername(), userdto.getPassword());				
-		if(null != user)
-		{
-			session.clear();
-			session.put("user", user);
-			
-			return SUCCESS;
-			
-		}
-		String str="用户名或密码不正确";
-		session.put("error",str);
-		
-		return INPUT;
-	}
-
+    
+    @Override
+    public String execute() throws Exception {
+    	Friend friend = new Friend();
+//    	User user = new User();
+    	User user=(User)session.get("user");
+    	System.out.println(user.getId());
+//    	user.setId(user.getId());
+//    	user.setId(1);
+    	friend.setUser(user);
+    	friend.setFriend_id(userdto.getId());
+    	userservice.deleteFriend(friend);
+    	
+    	return SUCCESS;
+    }
+    
 	@Override
 	public Object getModel() {
 		// TODO Auto-generated method stub
 		return userdto;
 	}
+	
+	
+	
 
 }

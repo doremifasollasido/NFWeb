@@ -5,6 +5,7 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -14,7 +15,6 @@ public class AtUserToMood
 {
 	private int id;
 	private User user;
-	private Mood mood;
 	private Date uptime;
 	@Id
 	@GeneratedValue
@@ -27,6 +27,7 @@ public class AtUserToMood
 		this.id = id;
 	}
 	@ManyToOne
+	@JoinColumn(name="user_id")
 	public User getUser()
 	{
 		return user;
@@ -35,15 +36,7 @@ public class AtUserToMood
 	{
 		this.user = user;
 	}
-	@ManyToOne
-	public Mood getMood()
-	{
-		return mood;
-	}
-	public void setMood(Mood mood)
-	{
-		this.mood = mood;
-	}
+	
 	public Date getUptime()
 	{
 		return uptime;

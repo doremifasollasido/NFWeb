@@ -100,7 +100,7 @@ public class FriendDaoImpl implements FriendDao
 	 * @see com.nf.dao.impl.FriendDao#loadFriendById(int)
 	 */
 	@Override
-	public Friend loadFriendById(int frienId) throws DataAccessException
+	public Friend loadFriendById(int frienId)
 	{
 		return hibernateTemplate.load(Friend.class, frienId);
 	}
@@ -113,10 +113,9 @@ public class FriendDaoImpl implements FriendDao
 	 */
 	
 	@Override
-	public int[] loadFriendIdAarryByUser(final User user, final int fromIndex,
-			final int toIndex) throws DataAccessException
+	public Object[] loadFriendIdAarryByUser(final User user)
 	{
-		int[] resultArray = null;
+		Object[] resultArray = null;
 		List<Friend> list = new ArrayList<Friend>();
 		try
 		{
@@ -126,10 +125,9 @@ public class FriendDaoImpl implements FriendDao
 				public List<Friend> doInHibernate(Session session)
 				{
 					Criteria criteria = session.createCriteria(Friend.class)
-							.add(Restrictions.eq("user.id", user.getId()))
-							.addOrder(Order.desc("id"));
-					criteria.setFirstResult(fromIndex);
-					criteria.setMaxResults(toIndex);
+							.add(Restrictions.eq("user.id", user.getId()));
+					
+					criteria.setMaxResults(500);//最大好友数500
 					return (List<Friend>)criteria.list();
 				}
 			});
@@ -138,14 +136,71 @@ public class FriendDaoImpl implements FriendDao
 			resultArray = null;
 			ex.printStackTrace();
 		}
-		resultArray = new int[list.size()];
+		resultArray = new Object[list.size()];
 		for (int i = 0; i < list.size(); i++)
 		{
-			resultArray[i] = list.get(i).getFriend_id();
-			System.out.println("friend" + i + "=" + list.get(i));
+			User u = new User();
+			u.setId(list.get(i).getFriend_id());
+			resultArray[i] = u;
+			System.out.println("friend" + i + "=" + list.get(i).getFriend_id());
 		}
 
 		return resultArray;
+	}
+	
+	public List<User> loadFriendByUser(final User user,final int fromIndex,final int toIndex) 
+	{
+		
+		List<Friend> list = new ArrayList<Friend>();
+		List<User> resultList = new ArrayList<User>();
+		//进行好友id查询
+		try
+		{
+			list = hibernateTemplate.execute(new HibernateCallback<List<Friend>>()
+			{
+				@SuppressWarnings("unchecked")
+				public List<Friend> doInHibernate(Session session)
+				{
+					Criteria criteria = session.createCriteria(Friend.class)
+							.add(Restrictions.eq("user.id", user.getId())).addOrder(Order.desc("id"));
+					criteria.setFirstResult(fromIndex);
+					criteria.setMaxResults(toIndex);
+					return (List<Friend>)criteria.list();
+				}
+			});
+		} catch (HibernateException ex)
+		{
+			ex.printStackTrace();
+		}
+		//循环将friend_id装到user对象中，生成下一步查询所需的obj数组
+		if(list.size()>0){//如果好友数不为0
+			final Object[] resultArray = new Object[list.size()];
+			for (int i = 0; i < list.size(); i++)
+			{
+				//User u = new User();
+				//u.setId(list.get(i).getFriend_id());
+				resultArray[i] = list.get(i).getFriend_id();
+				System.out.println("friend" + i + "=" + list.get(i).getFriend_id());
+			}
+			//进行User查询
+			try
+			{
+				resultList = hibernateTemplate.execute(new HibernateCallback<List<User>>()
+				{
+					@SuppressWarnings("unchecked")
+					public List<User> doInHibernate(Session session)
+					{
+						Criteria criteria = session.createCriteria(User.class)
+								.add(Restrictions.in("id", resultArray));
+						return (List<User>)criteria.list();
+					}
+				});
+			} catch (HibernateException ex)
+			{
+				ex.printStackTrace();
+			}
+		}
+		return resultList;
 	}
 
 }

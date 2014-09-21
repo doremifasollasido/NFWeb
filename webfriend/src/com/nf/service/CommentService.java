@@ -1,5 +1,7 @@
 package com.nf.service;
 
+import java.util.List;
+
 import com.nf.model.Comment;
 import com.nf.model.Mood;
 import com.nf.model.User;
@@ -17,5 +19,9 @@ public interface CommentService
 	public abstract int addcommentReturnId(Comment comment, User user, Mood mood);
 
 	public abstract String deleteOneMoodById(int moodId);
+	
+	public abstract List<Comment> getCommentByMoodId(int moodId);
+
+	public abstract Comment getCommentById(int commentId);
 
 }

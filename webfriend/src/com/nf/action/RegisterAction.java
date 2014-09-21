@@ -17,8 +17,7 @@ import com.opensymphony.xwork2.ModelDriven;
 @Component("useraction")
 @Scope("prototype")
 public class RegisterAction extends ActionSupport implements ModelDriven,
-		SessionAware
-{
+		SessionAware {
 	/*
 	 * 用户注册action
 	 */
@@ -26,42 +25,44 @@ public class RegisterAction extends ActionSupport implements ModelDriven,
 	private UserDto userdto;
 	private UserService userservice;
 
-	public Map getSession()
-	{
+	public Map getSession() {
 		return session;
 	}
 
-	public void setSession(Map session)
-	{
+	public void setSession(Map session) {
 		this.session = session;
 	}
 
-	public UserService getUserservice()
-	{
+	public UserService getUserservice() {
 		return userservice;
 	}
 
 	@Resource(name = "userservice")
-	public void setUserservice(UserService userservice)
-	{
+	public void setUserservice(UserService userservice) {
 		this.userservice = userservice;
 	}
 
-	public UserDto getUserdto()
-	{
+	public UserDto getUserdto() {
 		return userdto;
 	}
 
 	@Resource(name = "userdto")
-	public void setUserdto(UserDto userdto)
-	{
+	public void setUserdto(UserDto userdto) {
 		this.userdto = userdto;
 	}
 
 	@Override
-	public String execute() throws Exception
-	{
-		System.out.println("action one ");
+	public String execute() throws Exception {
+		if((userdto.getUsername().length()<4||userdto.getUsername().length()>10)
+		||(userdto.getPassword().length()<4||userdto.getPassword().length()>10)
+		||(userdto.getSno().length()<2||userdto.getSno().length()>10)
+		||(userdto.getAlais().length()<2||userdto.getAlais().length()>10)
+		||(userdto.getEmail().length()<1||userdto.getEmail().length()>18))
+		{
+			return INPUT;
+		}
+		
+	
 		User user = new User();
 		user.setUsername(userdto.getUsername());
 		user.setPassword(userdto.getPassword());
@@ -73,11 +74,10 @@ public class RegisterAction extends ActionSupport implements ModelDriven,
 		user.setMajor(userdto.getMajor());
 		user.setAddress(userdto.getAddress());
 		System.out.println("action");
-
+		
 		String resultsting = userservice.exists(user);
-		if (resultsting.length() > 0)
-		{
-			System.out.println("11111=" + resultsting);
+		if (resultsting.length() > 0) {
+			System.out.println("11111="+resultsting);
 			return INPUT;
 		}
 		userservice.save(user);
@@ -85,8 +85,7 @@ public class RegisterAction extends ActionSupport implements ModelDriven,
 	}
 
 	@Override
-	public Object getModel()
-	{
+	public Object getModel() {
 		// TODO Auto-generated method stub
 		return userdto;
 	}

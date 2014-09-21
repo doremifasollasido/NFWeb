@@ -3,20 +3,14 @@ package com.nf.model;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-
-import org.hibernate.annotations.LazyToOne;
-import org.hibernate.annotations.LazyToOneOption;
 
 @Entity
 @Table(name = "t_picture")
 public class Picture
 {
 	private int id;
-	private Mood mood;
 	private String url;
-
 	@Id
 	@GeneratedValue
 	public int getId()
@@ -27,18 +21,6 @@ public class Picture
 	public void setId(int id)
 	{
 		this.id = id;
-	}
-
-	@ManyToOne
-	@LazyToOne(LazyToOneOption.PROXY)
-	public Mood getMood()
-	{
-		return mood;
-	}
-
-	public void setMood(Mood mood)
-	{
-		this.mood = mood;
 	}
 
 	public String getUrl()

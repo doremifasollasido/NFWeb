@@ -13,99 +13,100 @@ import com.nf.model.Comment;
 import com.nf.model.Mood;
 
 /**
- * 编写者：ZHJ
- * 功能：评论处理服务实现层
- * 编写时间：2014-9-18
+ * 编写者：ZHJ 功能：评论处理服务实现层 编写时间：2014-9-18
  */
-@Component("comentDaoImpl")
+@Component("commentDaoImpl")
 public class CommentDaoImpl implements CommentDao
 {
 	private HibernateTemplate hibernateTemplate;
-	
-	/* (non-Javadoc)
-	 * @see com.nf.dao.impl.CommentDao#addcomment(com.nf.model.Comment)
-	 */
-	@Override
-	public boolean addcomment(Comment comment){
-		boolean bl =false;
-		try{
-			hibernateTemplate.save(comment);
-			bl =true;
-		}catch(DataAccessException dex){
-			dex.printStackTrace();
-			bl = false;
-		}
-		
-		return bl;
-	}
-	/* (non-Javadoc)
-	 * @see com.nf.dao.impl.CommentDao#addCommentReturnId(com.nf.model.Comment)
-	 */
-	@Override
-	public Integer addCommentReturnId(Comment comment){
-		Integer a=0;
-		try{
-			a =(Integer) hibernateTemplate.save(comment);
-			
-		}catch(DataAccessException dex){
-			dex.printStackTrace();
-			a=0;
-		}
-		
-		return a;
-	}
-	
-	
-	/* (non-Javadoc)
-	 * @see com.nf.dao.impl.CommentDao#loadCommentById(int)
-	 */
-	@Override
-	public Comment loadCommentById(int commentId) throws DataAccessException{
-		return hibernateTemplate.load(Comment.class, commentId);
-	}
-	/* (non-Javadoc)
-	 * @see com.nf.dao.impl.CommentDao#loadCommentByMood(com.nf.model.Mood)
-	 */
-	@Override
-	public List<Comment> loadCommentByMood(Mood mood) throws DataAccessException{
-//		hibernateTemplate.findByExample("mood", mood);
-		return null;
-	}
-	
-	
-	/* (non-Javadoc)
-	 * @see com.nf.dao.impl.CommentDao#deleteComment(com.nf.model.Comment)
-	 */
-	@Override
-	public boolean deleteComment(Comment comment){
-		boolean bl =false;
-		try{
-			hibernateTemplate.delete(comment);
-			bl =true;
-		}catch(DataAccessException dex){
-			dex.printStackTrace();
-			bl = false;
-		}
-		return bl;
-	}
-	
-	
-	
-	/* (non-Javadoc)
-	 * @see com.nf.dao.impl.CommentDao#getHibernateTemplate()
-	 */
-	@Override
+
 	public HibernateTemplate getHibernateTemplate()
 	{
 		return hibernateTemplate;
 	}
-	/* (non-Javadoc)
-	 * @see com.nf.dao.impl.CommentDao#setHibernateTemplate(org.springframework.orm.hibernate4.HibernateTemplate)
-	 */
-	@Override
+
 	@Resource
 	public void setHibernateTemplate(HibernateTemplate hibernateTemplate)
 	{
 		this.hibernateTemplate = hibernateTemplate;
 	}
+
+	@Override
+	public boolean addcomment(Comment comment)
+	{
+		boolean bl = false;
+		try
+		{
+			hibernateTemplate.save(comment);
+			bl = true;
+		} catch (DataAccessException dex)
+		{
+			dex.printStackTrace();
+			bl = false;
+		}
+
+		return bl;
+	}
+
+	@Override
+	public Integer addCommentReturnId(Comment comment)
+	{
+		Integer a = 0;
+		try
+		{
+			a = (Integer) hibernateTemplate.save(comment);
+
+		} catch (DataAccessException dex)
+		{
+			dex.printStackTrace();
+			a = 0;
+		}
+
+		return a;
+	}
+
+	@Override
+	public Comment loadCommentById(int commentId) throws DataAccessException
+	{
+		return hibernateTemplate.load(Comment.class, commentId);
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Comment> loadCommentByMood(Mood mood)
+			throws DataAccessException
+	{
+		return (List<Comment>) hibernateTemplate.find("Comment", mood.getId());
+
+	}
+
+	@Override
+	public boolean deleteComment(Comment comment)
+	{
+		boolean bl = false;
+		try
+		{
+			hibernateTemplate.delete(comment);
+			bl = true;
+		} catch (DataAccessException dex)
+		{
+			dex.printStackTrace();
+			bl = false;
+		}
+		return bl;
+	}
+
+	@Override
+	public List<Comment> getcomments(Comment comment)
+	{
+		@SuppressWarnings("unchecked")
+		List<Comment> list = (List<Comment>) hibernateTemplate
+				.find("from Comment");
+		if (null != list && list.size() > 0)
+		{
+			return list;
+		}
+		return null;
+	}
+
 }

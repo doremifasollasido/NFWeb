@@ -1,7 +1,7 @@
 package com.nf.model;
 
-import java.util.Date;
 import java.util.HashSet;
+import java.util.Date;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -20,13 +20,24 @@ import javax.persistence.Table;
 public class Comment
 {
 	private int id;
-	private User user;
-	private Mood mood;
+	private User user;//评论者
 	private Comment fatherComment;
 	private Set<Comment> children = new HashSet<Comment>();
 	private String content;
 	private Date uptime;
-	private Set<AtUserToComment> atUserToComments;
+	private Set<AtUserToComment> atUserToComments = new HashSet<AtUserToComment>();
+	private Mood mood;
+	
+	@ManyToOne
+	public Mood getMood()
+	{
+		return mood;
+	}
+
+	public void setMood(Mood mood)
+	{
+		this.mood = mood;
+	}
 
 	@Id
 	@GeneratedValue
@@ -41,6 +52,7 @@ public class Comment
 	}
 
 	@ManyToOne
+	@JoinColumn(name="user_id")
 	public User getUser()
 	{
 		return user;
@@ -52,18 +64,7 @@ public class Comment
 		this.user = user;
 	}
 
-	@ManyToOne
-	public Mood getMood()
-	{
-		return mood;
-	}
-
-	public void setMood(Mood mood)
-	{
-		this.mood = mood;
-	}
-
-	@ManyToOne
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="father_id")
 	public Comment getFatherComment()
 	{
@@ -74,8 +75,13 @@ public class Comment
 	{
 		this.fatherComment = fatherComment;
 	}
+	public String getContent()
+	{
+		return content;
+	}
 
-	@OneToMany(mappedBy="fatherComment",cascade=CascadeType.ALL,fetch=FetchType.EAGER)
+	@OneToMany(mappedBy="fatherComment",cascade=CascadeType.REMOVE,fetch=FetchType.EAGER)
+	
 	public Set<Comment> getChildren()
 	{
 		return children;
@@ -84,11 +90,6 @@ public class Comment
 	public void setChildren(Set<Comment> children)
 	{
 		this.children = children;
-	}
-
-	public String getContent()
-	{
-		return content;
 	}
 
 	public void setContent(String content)
@@ -105,8 +106,9 @@ public class Comment
 	{
 		this.uptime = uptime;
 	}
-
-	@OneToMany(mappedBy="comment")
+	//评论可以看到@,但@不能看到评论
+	@OneToMany(cascade=CascadeType.REMOVE,fetch=FetchType.EAGER)
+	@JoinColumn(name="comment_id")
 	public Set<AtUserToComment> getAtUserToComments()
 	{
 		return atUserToComments;
@@ -116,6 +118,9 @@ public class Comment
 	{
 		this.atUserToComments = atUserToComments;
 	}
+
+	
+	
 	
 
 }

@@ -62,6 +62,10 @@ public interface MoodDao
 	 * @return 对应条件的好友心情列表
 	 */
 	public abstract List<Mood> queryFriendMood(Date flushTime, int fromIndex,
-			int toIndex, int userId);
-
+			int toIndex, int userId, Object[] friendId);
+	
+	//新的
+	public abstract List<Mood> queryMood();
+	
+	public abstract Integer addmoodReturnId(Mood mood);
 }

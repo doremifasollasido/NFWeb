@@ -2,10 +2,7 @@ package com.nf.dao;
 
 import java.util.List;
 
-import javax.annotation.Resource;
-
 import org.springframework.dao.DataAccessException;
-import org.springframework.orm.hibernate4.HibernateTemplate;
 
 import com.nf.model.Comment;
 import com.nf.model.Mood;
@@ -24,6 +21,8 @@ public interface CommentDao
 
 	public abstract Comment loadCommentById(int commentId)
 			throws DataAccessException;
+	//新的
+	public abstract List<Comment> getcomments(Comment comment);
 
 	/**
 	 * 
@@ -35,11 +34,5 @@ public interface CommentDao
 			throws DataAccessException;
 
 	public abstract boolean deleteComment(Comment comment);
-
-	public abstract HibernateTemplate getHibernateTemplate();
-
-	@Resource
-	public abstract void setHibernateTemplate(
-			HibernateTemplate hibernateTemplate);
 
 }

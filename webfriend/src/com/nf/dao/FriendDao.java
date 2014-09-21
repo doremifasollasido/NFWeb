@@ -1,5 +1,7 @@
 package com.nf.dao;
 
+import java.util.List;
+
 import org.springframework.dao.DataAccessException;
 
 import com.nf.model.Friend;
@@ -33,18 +35,19 @@ public interface FriendDao
 	 * @return 找到的对象
 	 * @throws DataAccessException 存在异常则操作表示失败 
 	 */
-	public abstract Friend loadFriendById(int frienId)
-			throws DataAccessException;
+	public abstract Friend loadFriendById(int frienId);
 
 	/**
 	 * 依据条件查询指定数量的好友ID
-	 * @param user 主用户（或进行该操作的用户）
+	 * @param user 主用户（或进行该操作的用户）[只用到id]
+	 * @return 好友ID的数组
+	 */
+	public abstract Object[] loadFriendIdAarryByUser(User user);
+	/**
+	 * @param user 主用户（或进行该操作的用户）[只用到id]
 	 * @param fromIndex 起始位置
 	 * @param toIndex 结束位置
-	 * @return 好友ID的数组
-	 * @throws DataAccessException 存在异常则操作表示失败 
+	 * @return
 	 */
-	public abstract int[] loadFriendIdAarryByUser(User user, int fromIndex,
-			int toIndex) throws DataAccessException;
-
+	public abstract List<User> loadFriendByUser(final User user,final int fromIndex,final int toIndex);
 }

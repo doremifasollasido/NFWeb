@@ -42,12 +42,18 @@ public class AdminDaoImpl implements AdminDao {
 		return null;
 	}
 	@Override
-	public void userdelete(int id) {
-		
+	public void userdelete(int id) throws Exception{
+		try
+		{
 		User user =  hibernatetemplate.get(User.class,id);
 		if(null!=user)
 		{
 		hibernatetemplate.delete(user);
+		}
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+			
 		}
 	}
 }

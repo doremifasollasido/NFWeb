@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="../assets/css/bootstrap.min.css" />
 <link rel="stylesheet" href="../assets/css/bootstrap-responsive.min.css" />
 <link rel="stylesheet" href="../assets/css/style.css" />
+    <script type="text/javascript" src="../assets/js/city_dept.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 </head>
 <style>
@@ -49,7 +50,7 @@ body {
 	margin: 68px 0 0 0;
 }
 </style>
-<body>
+<body onLoad="onload()">
 <!--导航条-->
 <div class="navbar navbar-fixed-top">
   <div class="navbar-inner">
@@ -97,7 +98,7 @@ body {
               <div class="bar" style="width: 10%;"></div>
             </div>
             <div class="baseinfo">
-              <form class="form-horizontal">
+              <form class="form-horizontal" action="#" method="post" name="form1">
                 <div class="control-group">
                   <label class="control-label" for="inputName">姓名：</label>
                   <div class="controls">
@@ -128,37 +129,34 @@ body {
                 <div class="control-group">
                   <label class="control-label" for="inputDesc">就读于：</label>
                   <div class="controls">
-                    <select name="inputDesc">
-                      <option value="电子通讯与软件工程系">电子通讯与软件工程</option>
-                      <option value="会计系">会计系</option>
-                      <option value="文传系">文传系</option>
+                    <select name="dept" onchange="majorName(this.selectedIndex)">
+                      <option value="">请选择所在系别</option>
+                    </select><p></p>
+                    <select name="major"> 
+                                <option value="">请选择专业</option> 
+                    </select><p></p>
+                    <select value="class">
+                    	<option value="">请选择班级</option>
+                        <option value="">一班</option>
+                        <option value="">二班</option>
+                        <option value="">三班</option>
+                        <option value="">四班</option>
+                        <option value="">五班</option>
+                        <option value="">六班</option>
                     </select>
                   </div>
                 </div>
-                <div class="control-group">
-                  <label class="control-label" for="inputMajor"></label>
-                  <div class="controls">
-                    <select name="inputMajor">
-                      <option value="计算机科学与技术专业">计算机科学与技术专业</option>
-                      <option value="电子专业">电子专业</option>
-                      <option value="通信专业">通信专业</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="control-group">
-                  <label class="control-label" for="inputClass"></label>
-                  <div class="controls">
-                    <select name="inputClass">
-                      <option value="1班">1班</option>
-                      <option value="2班">2班</option>
-                      <option value="3班">3班</option>
-                    </select>
-                  </div>
-                </div>
+
+                    
                 <div class="control-group">
                   <label class="control-label" for="inputAddr">现居地：</label>
                   <div class="controls">
-                    <input type="password" id="inputAddr" placeholder="">
+                    <select name="province" onchange="cityName(this.selectedIndex)"> 
+                                <option value="">请选择省名</option> 
+                              </select>
+                              <select name="city"> 
+                                <option value="">请选择城名</option> 
+                              </select>
                   </div>
                 </div>
                 <div class="control-group">

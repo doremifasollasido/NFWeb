@@ -114,6 +114,25 @@ body{
 				padding-left:20px;
 				margin-bottom:15px;
 			}
+			.popover{
+				width:150px;
+				height:200px;
+				overflow:auto;
+			}
+			.popover-content img{
+				width:40px;
+				height:40px;
+				margin-bottom:5px;
+				padding-right:10px;
+			}
+.upload_preview{background-color:#FBFBFB; overflow:hidden; _zoom:1;box-shadow: 0 0 1px #000000;
+    border-radius: 7px; margin-top:10px;}
+.upload_append_list{height:auto; padding:0 1em; float:left; position:relative;}
+.upload_delete{margin-left:2em;}
+.upload_image{max-height:90px; padding:5px;}
+
+.upload_submit_btn{display:none;}
+
 /*∫√”—¡–±Ì*/
 
 .friend-search{

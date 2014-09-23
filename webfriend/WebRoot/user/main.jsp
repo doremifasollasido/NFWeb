@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+﻿<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <%
 String path = request.getContextPath();
@@ -150,85 +150,26 @@ $(function(){
 	});	
 </script>
     	</head>
-        <style>
-			.navbar,.navbar-inner{
-				height:65px;
-			}
-			.navbar .nav{
-				font-size:22px;
-				margin-top:15px;
-			}
-			.navbar .brand img{
-				width:200px;
-				height:50px;
-			}
-			.search-position{
-				margin-top:18px;
-				width:400px;
-				float:left;
-				position:relative;
-			}
-			.sider{
-				position: fixed;
-				float:right;
-			}
-			.sider li{
-				border-bottom:1px solid #e5e5e5;
-			}
-			.sider img{
-				width:70px;
-				height:70px;
-				margin-left:10px;
-				margin-bottom:10px;
-			}
-			.media a img{
-				width:40px;
-				height:40px;
-			}
-			.username{
-				color:#435E99;
-			}
-			.classes{
-				color:#B1B1B1;
-			}
-			.mood-picture{
-				margin-top:10px;
-				/*height:480px;*/
-
-			}
-			.mood-picture ul{
-				width:400px;
-				list-style-type:none;
-				margin-top:5px;
-				background:#900;
-				padding:0;
-				margin-left:5px;
-			}
-			.mood-picture li{
-				float:left;
-				margin-right:4px;
-				width:76px;
-			}
-			.mood-picture li img{
-				width:76px;
-				height:57px;
-			}
-			.mood-picture span{
-				display:block;
-				color:#435E99;
-				clear:both;
-				padding-top:5px;
-			}
-			.time{
-				color:#B3B3B3;
-				font-size:12px;
-			}
-			.span8>ul>li{
-				border-bottom:1px solid #e5e5e5;
-				margin-bottom:15px;
-				padding-bottom:15px;
-			}
-		</style>
+        <script>
+			
+			$(function(){
+				$("#at").toggle(function(){
+					$("#show").show();	
+				},function(){
+					$("#show").hide();
+				});	
+				$("a[title=friend]").click(function(){
+					var text = $(this).text();
+					var text = "<a href='#'>@"+text+"</a> ";
+					//alert(text);
+					var val = $("#mood-content").text();
+					var s_val = val+text;
+					$("#mood-content").text(s_val);	
+					$("#show").hide();
+					return false;
+				});
+			});
+		</script>
     <body>
     <!--导航条-->
     <div class="navbar navbar-fixed-top">
@@ -246,6 +187,7 @@ $(function(){
                 <ul class="nav">
                   <li class="active"><a href="#"><img src="assets/img/icons/20/home.png"> 首页</a></li>
                   <li><a href="#"><img src="assets/img/icons/20/user.png"> 好友</a></li>
+                  <li><a href="#"><img src="assets/img/icons/20/search.png"> 查找好友</a></li>
                 </ul>
                 <!--搜索-->
                 <div class="search-position">
@@ -297,9 +239,23 @@ $(function(){
                  <div class="span8">
                      <div style="margin-top:20px; margin-left:50px; width:500px">
                      	<!--发表-->
-                        <form action="sendmood" method="post">
-                        	<textarea name="content" rows="4" style="width:500px;"></textarea><br>
+                        <form action="sendmood" method="post" id="uploadForm" enctype="multipart/form-data">
+                        	<textarea name="content" rows="4" style="width:500px;" id="mood-content"></textarea><br>
+                        	<button class="btn" id="at">@</button>
+                            <div class="popover fade bottom in" id="show" style="top: 220px; left: 380px; display: none;">
+                                <div class="arrow"></div>
+                                <h3 class="popover-title">好友列表</h3>
+                                <div class="popover-content">
+                                    <img src="assets/img/test/av1.jpg"><a href="#" title="friend">好友1</a><br>
+                                    <img src="assets/img/test/av1.jpg"><a href="#" title="friend">好友2</a><br>
+                                    <img src="assets/img/test/av1.jpg"><a href="#" title="friend">好友3</a><br>
+                                    <img src="assets/img/test/av1.jpg"><a href="#" title="friend">好友4</a><br>
+                                </div>
+                            </div>
+                            <input id="fileImage" type="file" name="fileselect[]" style="width:75px;" multiple />
+                            <button type="button" id="fileSubmit" class="btn upload_submit_btn">确认上传图片</button>
                             <button type="submit" class="btn btn-success" style="float:right;">发表</button>
+                            <div id="preview" class="upload_preview"></div>
                         </form>
                      </div>
                   	<div class="span8 pull-left" style="margin-left:-5px; margin-top:10px;">
@@ -316,6 +272,69 @@ $(function(){
     <div class="modal-footer" style="text-align:center">
     	Copyright © 2014 - 2015 Tencent.中山大学南方学院-JAVA班-7组 版权所有
     </div>
-    <script src="assets/js/jquery.min.js"></script>  
+    
+    <script src="assets/js/zxxFile.js"></script>
+<script>
+var params = {
+	fileInput: $("#fileImage").get(0),
+	upButton: $("#fileSubmit").get(0),
+	url: $("#uploadForm").attr("action"),
+	filter: function(files) {
+		var arrFiles = [];
+		for (var i = 0, file; file = files[i]; i++) {
+			if (file.type.indexOf("image") == 0) {
+				if (file.size >= 512000) {
+					alert('您这张"'+ file.name +'"图片大小过大，应小于500k');	
+				} else {
+					arrFiles.push(file);	
+				}			
+			} else {
+				alert('文件"' + file.name + '"不是图片。');	
+			}
+		}
+		return arrFiles;
+	},
+	onSelect: function(files) {
+		var html = '', i = 0;
+		$("#preview").html("<div class='upload_loading'></div>");
+		var funAppendImage = function() {
+			file = files[i];
+			if (file) {
+				var reader = new FileReader()
+				reader.onload = function(e) {
+					html = html + '<div id="uploadList_'+ i +'" class="upload_append_list"><p><strong>' + file.name + '</strong>'+ 
+						'<a href="javascript:" class="upload_delete" title="删除" data-index="'+ i +'">删除</a><br />' +
+						'<img id="uploadImage_' + i + '" src="' + e.target.result + '" class="upload_image" /></p>'+ 
+					'</div>';
+					
+					i++;
+					funAppendImage();
+				}
+				reader.readAsDataURL(file);
+			} else {
+				$("#preview").html(html);
+				if (html) {
+					//删除方法
+					$(".upload_delete").click(function() {
+						ZXXFILE.funDeleteFile(files[parseInt($(this).attr("data-index"))]);
+						return false;	
+					});
+					//提交按钮显示
+					$("#fileSubmit").show();	
+				} else {
+					//提交按钮隐藏
+					$("#fileSubmit").hide();	
+				}
+			}
+		};
+		funAppendImage();		
+	},
+	onDelete: function(file) {
+		$("#uploadList_" + file.index).fadeOut();
+	}
+};
+ZXXFILE = $.extend(ZXXFILE, params);
+ZXXFILE.init();
+</script> 
 	</body>
 </html>
